@@ -55,24 +55,31 @@ function delProduct(id) {
 
 // Thêm SP
 function addProduct() {
+
+    // lấy sp từ form
     var sp = getInfo();
     console.log("sp: ", sp);
 
-    // định nghĩa bên ProductsServ
-    addProductList(sp)
-        .then(function (res) {
-            console.log("res", res);
-            //   tắt modal của bs sau khi thêm thành công
+    // Validation check
+    var valid = validationSP(sp);
+    if (valid) {
+        // định nghĩa bên ProductsServ
+        addProductList(sp)
+            .then(function (res) {
+                console.log("res", res);
+                //   tắt modal của bs sau khi thêm thành công
 
-            // document.getElementById('myModal')
-            $("#myModal").modal("hide");
+                // document.getElementById('myModal')
+                $("#myModal").modal("hide");
 
-            //lấy danh sách sp mới nhất từ server
-            fetchProductsList();
-        })
-        .catch(function (err) {
-            console.log(err);
-        });
+                //lấy danh sách sp mới nhất từ server
+                fetchProductsList();
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
+    }
+
 }
 
 // Cập nhật sản phẩm
@@ -121,43 +128,43 @@ function searchProductByName() {
     var searchName = document.querySelector("#txtSearch").value.trim()?.toLowerCase();
     // gọi data từ API
     getProductList()
-    .then(function(res){
-        var productList = res.data;
-        // tìm kiếm trong danh sách sp mà có tên sau khi đã chuyển về từ thường mà có gồm từ khoá mà muốn tra
-        var result = productList.filter(function(sp){
-            return sp.name.toLowerCase().includes(searchName);
-        });
+        .then(function (res) {
+            var productList = res.data;
+            // tìm kiếm trong danh sách sp mà có tên sau khi đã chuyển về từ thường mà có gồm từ khoá mà muốn tra
+            var result = productList.filter(function (sp) {
+                return sp.name.toLowerCase().includes(searchName);
+            });
 
-        //render lại kết quả tìm thấy
-        renderProductsList(result);
-    })
-    .catch(function(err){
-        console.log("err", err);
-    });
+            //render lại kết quả tìm thấy
+            renderProductsList(result);
+        })
+        .catch(function (err) {
+            console.log("err", err);
+        });
 
 }
 
 // tìm kiếm bằng sự kiện nhấn nút enter
-document.querySelector("#txtSearch").addEventListener("keydown", function(event){
+document.querySelector("#txtSearch").addEventListener("keydown", function (event) {
     console.log("event", event);
     console.log("event.target", event.target);
     console.log("event.target.value", event.target.value);
     // event là 1 obj chứa thông tin về sự kiện
     // event.target: trả ra cái thẻ element phát sinh ra sự kiện
     // event.key: trả ra phím vừa mới nhấn 
-    if ( event.key !== "Enter" ) return;
+    if (event.key !== "Enter") return;
 
     var name = event.target.value;
 
     getProductList(name)
-    .then(function(res){
-        // console.log('res.data: ', res.data);
-        //render lại kết quả tìm thấy
-        renderProductsList(res.data);
-    })
-    .catch(function(err){
-        console.log("err", err);
-    });
+        .then(function (res) {
+            // console.log('res.data: ', res.data);
+            //render lại kết quả tìm thấy
+            renderProductsList(res.data);
+        })
+        .catch(function (err) {
+            console.log("err", err);
+        });
 });
 
 

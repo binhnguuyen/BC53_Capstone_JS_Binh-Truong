@@ -22,6 +22,7 @@
         width: 100%;
         height: 100%;
         position: fixed;
+        /* color: blueviolet; */
         background: #fff;
         z-index: 99;
         display: flex;
@@ -80,7 +81,7 @@
         </div>
       </nav>
 
-      <header class="display-4 my-4">Thực hành javascript - axios</header>
+      <!-- <header class="display-4 my-4">Thực hành javascript - axios</header> -->
       <!-- Phan tab menu -->
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
@@ -139,8 +140,12 @@
                 <th>STT</th>
                 <th>Tên Sản Phẩm</th>
                 <th>Giá</th>
-                <th>Hình Ảnh</th>
-                <th>Mô Tả</th>
+                <th>Màn hình</th>
+                <th>Camera sau</th>
+                <th>Camera trước</th>
+                <th>Hình ảnh</th>
+                <th>Mô tả</th>
+                <th>Hãng</th>
                 <th>Action</th>
               </thead>
               <tbody id="tblDanhSachSP"></tbody>
@@ -175,38 +180,79 @@
                   placeholder="Mã sản phẩm"
                   readonly
                 />
+                <span class="sp-thongbao text-danger" id="tbmaSP"></span>
               </div>
               <div class="form-group">
                 <label>Tên Sản Phẩm</label>
                 <input
                   id="TenSP"
                   class="form-control"
-                  placeholder="Nhập vào tên sản phẩm"
+                  placeholder="Ex: Iphone 11"
                 />
+                <span class="sp-thongbao text-danger" id="tbTenSP"></span>
               </div>
               <div class="form-group">
                 <label>Giá</label>
                 <input
                   id="GiaSP"
                   class="form-control"
-                  placeholder="Nhập vào giá"
+                  placeholder="Ex: 20000000"
                 />
+                <span class="sp-thongbao text-danger" id="tbGiaSP"></span>
+              </div>
+              <div class="form-group">
+                <label>Màn hình</label>
+                <input
+                  id="screenSP"
+                  class="form-control"
+                  placeholder="Ex: screen 60"
+                />
+                <span class="sp-thongbao text-danger" id="tbscreenSP"></span>
+              </div>
+              <div class="form-group">
+                <label>Camera sau</label>
+                <input
+                  id="backCameraSP"
+                  class="form-control"
+                  placeholder="Ex: 40 MP"
+                />
+                <span class="sp-thongbao text-danger" id="tbbackCameraSP"></span>
+              </div>
+              <div class="form-group">
+                <label>Camera trước</label>
+                <input
+                  id="frontCameraSP"
+                  class="form-control"
+                  placeholder="Chính 20 MP, phụ 12MP"
+                />
+                <span class="sp-thongbao text-danger" id="tbfrontCameraSP"></span>
               </div>
               <div class="form-group">
                 <label>Hình Ảnh</label>
                 <input
                   id="HinhSP"
                   class="form-control"
-                  placeholder="Nhập vào hình sản phẩm"
+                  placeholder="Ex: http://..."
                 />
+                <span class="sp-thongbao text-danger" id="tbHinhSP"></span>
+              </div>
+              <div class="form-group">
+                <label>Mô tả</label>
+                <input
+                  id="descSP"
+                  class="form-control"
+                  placeholder="Ex: Cấu hình khủng, màn hình 4K..."
+                />
+                <span class="sp-thongbao text-danger" id="tbdescSP"></span>
               </div>
               <div class="form-group">
                 <label for="">Loại sản phẩm: </label>
                 <select class="form-control" id="loaiSP">
-                  <option value="phone">Phone</option>
-                  <option value="laptop">Laptop</option>
+                  <option value="apple">Apple</option>
+                  <option value="samsung">Samsung</option>
                   <option value="other">Other</option>
                 </select>
+                <span class="sp-thongbao text-danger" id="tbloaiSP"></span>
               </div>
             </div>
             <!-- Modal footer -->
@@ -264,6 +310,8 @@
     <script src="../controller/Controller.js"></script>
     <!-- Service -->
     <script src="../services/ProductsServ.js"></script>
+    <!-- Validation -->
+    <script src="../utility/validation.js"></script>
     <!-- main JS -->
     <script src="../main.js"></script>
   </body>
