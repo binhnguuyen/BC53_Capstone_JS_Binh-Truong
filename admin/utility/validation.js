@@ -143,9 +143,9 @@ function kiemTraDinhDangNgay(value, id, message) {
     }
 }
 
-function kiemTraHangSX(value, dscv, id, message) {
+function kiemTraTrung(value, ds, id, message) {
 
-    var viTri = dscv.findIndex(checkIndex);
+    var viTri = ds.findIndex(checkIndex);
     function checkIndex(val) {
         // cái này có nghĩa là gán giá trị value cho val xong return giá trị val
         return val == value;
