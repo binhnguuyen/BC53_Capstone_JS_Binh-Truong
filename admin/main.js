@@ -185,7 +185,7 @@ function sortInAscending() {
 }
 
 // chức năng sắp xếp giảm dần
-function sortInAscending() {
+function sortInDescending() {
   // gọi data từ API
   getProductList()
     .then(function (res) {
