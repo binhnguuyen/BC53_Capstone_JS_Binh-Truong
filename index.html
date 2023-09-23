@@ -27,7 +27,10 @@
       crossorigin="anonymous"
     />
     <!-- Thư viện animation -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
   </head>
   <!-- tạo style cho spinner -->
   <style>
@@ -57,7 +60,7 @@
         <span class="sr-only">Loading...</span>
       </div>
     </div>
-    
+
     <!-- HEADER -->
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -77,19 +80,49 @@
           <a class="navbar-brand" href="#">Psycho Capstone</a>
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" href="./admin/view/admin.html" target=”_blank”>
-                Admin Page <span class="sr-only">(current)</span></a>
+              <a
+                class="nav-link"
+                href="./admin/view/admin.html"
+                target="”_blank”"
+              >
+                Admin Page <span class="sr-only">(current)</span></a
+              >
             </li>
           </ul>
-          <a class="navbar-brand" href="#"><i class="fa fa-shopping-cart"></i></a>
+          <a class="navbar-brand" href="#"
+            ><i class="fa fa-shopping-cart"></i
+          ></a>
         </div>
       </nav>
     </header>
 
+    <br /><br /><br /><br />
+    <!-- FILTER -->
+    <section class="filter container">
+      <div class="btn-group">
+        <label for="">Loại sản phẩm: </label>
+        <select class="form-control" id="filterSP" onchange="filSP()">
+          <option value="All">Tất cả</option>
+          <option value="Apple">Apple</option>
+          <option value="Samsung">Samsung</option>
+          <option value="Oppo">Oppo</option>
+          <option value="Xiaomi">Xiaomi</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <br>
+      <span class="sp-thongbao text-danger d-none" id="tbFilterSP">Không tìm thấy sản phẩm</span>
+    </section>
+
     <!-- CONTENT -->
     <section class="project container text-center">
       <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="pills-home-tab">
+        <div
+          class="tab-pane fade show active"
+          id="all"
+          role="tabpanel"
+          aria-labelledby="pills-home-tab"
+        >
           <div class="row" id="customerDSSP">
             <!-- B2: tạo cột -->
             <!-- .col-* -->
@@ -98,7 +131,6 @@
             <!-- class màn hình của BS là min-width
             các màn hình có kích thước liền kề nhau và có chung chỉ số của col thì giữ lại class màn hình nhỏ nhất, xóa các clas lớn hơn
             -->
-
           </div>
         </div>
       </div>
@@ -137,6 +169,6 @@
     <!-- Service -->
     <script src="./customer/services/ProductsServ.js"></script>
     <!-- main JS -->
-    <script src="./customer/customer.js"></script>
+    <script src="./customer/Customer.js"></script>
   </body>
 </html>
