@@ -91,8 +91,12 @@ function editProduct(id) {
       document.querySelector("#maSP").value = sp.id;
       document.querySelector("#TenSP").value = sp.name;
       document.querySelector("#GiaSP").value = sp.price;
-      document.querySelector("#HinhSP").value = sp.image;
-      document.querySelector("#loaiSP").value = sp.describe;
+      document.querySelector("#screenSP").value = sp.screen;
+      document.querySelector("#backCameraSP").value = sp.backCamera;
+      document.querySelector("#frontCameraSP").value = sp.frontCamera;
+      document.querySelector("#HinhSP").value = sp.img;
+      document.querySelector("#descSP").value = sp.desc;
+      document.querySelector("#loaiSP").value = sp.type;
       // mở modal
       $("#myModal").modal("show");
     })
