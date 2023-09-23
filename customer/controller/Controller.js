@@ -6,10 +6,10 @@ function renderProductsList(productsList) {
     var contentTr = `
             <div class="my-4 col-12 col-lg-4 col-sm-6">
                 <div class="card animate__animated animate__zoomIn">
-                    <img src=src="${product.img} class="card-img-top" alt="" width="200" height="200">
+                    <img src="${product.img}" class="card-img-top" alt="" width="200" height="300">
                     <div>
                         <h5>${product.name}</h5>
-                        <p>${product.price}<span> $</span></p>
+                        <p><span>Price </span>${product.price}<span> $</span></p>
                         <p>${product.desc}</p>
                     </div>
                 </div>
