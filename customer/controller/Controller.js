@@ -12,6 +12,7 @@ function renderProductsList(productsList) {
                         <p><span>Price </span>${product.price}<span> $</span></p>
                         <p>${product.desc}</p>
                     </div>
+                    <button type="button" onclick ="addToCart(${product.id})" class="btn btn-primary">Thêm vào giỏ hàng</button>
                 </div>
             </div> 
         `;
@@ -20,6 +21,38 @@ function renderProductsList(productsList) {
 
   // in danh sách ra table
   var productTable = document.querySelector("#customerDSSP");
+  productTable.innerHTML = content;
+}
+
+function renderProductsToCart(productsList) {
+  var content = "";
+
+  for (var i = 0; i < productsList.length; i++) {
+    var product = productsList[i];
+    var contentTr = `
+        <div class="media">
+          <div class="media-left">
+            <a href="#">
+              <img
+                class="media-object"
+                src="${product.img}"
+                alt="..." width="120" height="120"
+              />
+            </a>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">${product.name}</h4>
+            <h5>$ ${product.price}</h5>
+            <a href="">remove</a>
+          </div>
+        </div>
+        <hr>
+          `;
+    content += contentTr;
+  }
+
+  // in danh sách ra table
+  var productTable = document.querySelector("#inner");
   productTable.innerHTML = content;
 }
 
@@ -60,12 +93,3 @@ function onLoading() {
 function offLoading() {
   document.querySelector("#spinner").style.display = "none";
 }
-
-
-
-
-
-
-
-
-

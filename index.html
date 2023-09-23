@@ -64,6 +64,10 @@
     <!-- HEADER -->
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="navbar-brand">
+          <i class="fab fa-android"></i>
+          <a class="navbar-brand" href="#">Psycho Capstone</a>
+        </div>
         <button
           class="navbar-toggler"
           type="button"
@@ -76,8 +80,6 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <i class="fab fa-android"></i>
-          <a class="navbar-brand" href="#">Psycho Capstone</a>
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
               <a
@@ -89,12 +91,92 @@
               >
             </li>
           </ul>
-          <a class="navbar-brand" href="#"
-            ><i class="fa fa-shopping-cart"></i
-          ></a>
+          <!-- <a class="btn btn-info js-open" data-target="#js-favourites"
+          aria-controls="js-favourites" href="#">
+            <span class="bag-icon">Your Cart</span>
+            <span class="bag-number"></span>
+            <i class="fa fa-shopping-cart"></i>
+          </a> -->
+          <!-- data-toggle="collapse" -->
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#staticBackdrop"
+          >
+            Your Cart
+            <i class="fa fa-shopping-cart"></i>
+          </button>
         </div>
       </nav>
     </header>
+
+    <!-- CART SIDEBAR -->
+    <!-- collapse navbar-collapse -->
+    <!-- <div id="js-favourites" class="off-canvas-panel">
+      <button class="js-close btn-close" onclick="hideCart()">Đóng</button>
+      <div class="heading">
+        <p class="h3">Nội dung giỏ hàng</p>
+      </div>
+      <div class="inner" id="inner">
+        <div class="media">
+          <div class="media-left">
+            <a href="#">
+              <img
+                class="media-object"
+                src="https://placehold.it/60x60"
+                alt="..."
+              />
+            </a>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">Product 1</h4>
+            £15.00 <a href="">remove</a>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-backdrop="static"
+      data-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Giỏ hàng của bạn</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="inner">
+
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Understood</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <br /><br /><br /><br />
     <!-- FILTER -->
@@ -110,8 +192,10 @@
           <option value="Other">Other</option>
         </select>
       </div>
-      <br>
-      <span class="sp-thongbao text-danger d-none" id="tbFilterSP">Không tìm thấy sản phẩm</span>
+      <br />
+      <span class="sp-thongbao text-danger d-none" id="tbFilterSP"
+        >Không tìm thấy sản phẩm</span
+      >
     </section>
 
     <!-- CONTENT -->

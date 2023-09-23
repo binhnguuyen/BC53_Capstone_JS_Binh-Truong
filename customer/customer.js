@@ -50,8 +50,7 @@ function filSP() {
 
       if (filterSP === all) {
         renderProductsList(sp);
-      } 
-      else {
+      } else {
         for (var i = 0; i < sp.length; i++) {
           if (filterSP === sp[i].type) {
             filterResult.push(sp[i]);
@@ -63,8 +62,7 @@ function filSP() {
         if (filterResult.length == 0) {
           tbFilterSP.classList.remove("d-none");
           tbFilterSP.classList.add("d-block");
-        } 
-        else {
+        } else {
           tbFilterSP.classList.remove("d-block");
           tbFilterSP.classList.add("d-none");
         }
@@ -75,6 +73,63 @@ function filSP() {
     // thất bại thì báo lỗi, hoặc in ra thông báo tuỳ mình
     .catch(function (err) {
       offLoading();
+      console.log("err", err);
+    });
+}
+
+// biến cart phải là global để nội dung trong nó ko bị xoá khi function addToCart chạy
+var cartSP = [];
+var cartSPQuan = [];
+var quantity = 0;
+
+function addToCart(idSP) {
+  var alreadyInCart = false;
+  editProductByID(idSP)
+    .then(function (res) {
+      // gán cái get đc cho sp
+      var sp = res.data;
+
+      if (cartSP.length == 0) {
+        cartSP.push(sp);
+        cartSPQuan.push(quantity);
+      } else {
+        for (var i = 0; i < cartSP.length; i++) {
+          if (cartSP[i].id != sp.id) {
+            // do nothing
+          } 
+          else {
+            alreadyInCart = true;
+          }
+        }
+        if ( !alreadyInCart ) {
+          cartSP.push(sp);
+        }
+      }
+
+      if (cartSP.length == 0) {
+        var productTable = (document.querySelector("#inner").innerHTML = `
+          <h3 class=".text-danger">Chưa có hàng trong giỏ</h3>
+        `);
+      } 
+      else {
+        renderProductsToCart(cartSP);
+      }
+
+      /*
+      // hiển thị thông tin sp cần sửa lên modal
+      document.querySelector("#maSP").value = sp.id;
+      document.querySelector("#TenSP").value = sp.name;
+      document.querySelector("#GiaSP").value = sp.price;
+      document.querySelector("#screenSP").value = sp.screen;
+      document.querySelector("#backCameraSP").value = sp.backCamera;
+      document.querySelector("#frontCameraSP").value = sp.frontCamera;
+      document.querySelector("#HinhSP").value = sp.img;
+      document.querySelector("#descSP").value = sp.desc;
+      document.querySelector("#loaiSP").value = sp.type;
+      */
+    })
+    .catch(function (err) {
+      //   offLoading();
       console.log("err", err);
     });
 }
