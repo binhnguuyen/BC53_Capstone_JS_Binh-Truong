@@ -26,8 +26,11 @@
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous"
     />
+    <!-- Thư viện animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   </head>
   <body>
+    <!-- HEADER -->
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <button
@@ -54,6 +57,78 @@
         </div>
       </nav>
     </header>
+
+    <!-- CONTENT -->
+    <section class="project container text-center">
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="pills-home-tab">
+          <div class="row">
+            <!-- B2: tạo cột -->
+            <!-- .col-* -->
+            <!-- chỉ số 1-12 (quy định của BS có 12 cột), cách tính chỉ số: 12/3 = 4 -->
+            <!-- tạo margin bằng my -->
+            <!-- class màn hình của BS là min-width
+            các màn hình có kích thước liền kề nhau và có chung chỉ số của col thì giữ lại class màn hình nhỏ nhất, xóa các clas lớn hơn
+            -->
+            <div class="my-4 col-12 col-lg-4 col-sm-6">
+                <div class="card animate__animated animate__zoomIn">
+                    <img src="./img/g1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-text">Apologetic robot holding flowers</h5>
+                        <p class="card-text">Branding</p>
+                    </div>
+                </div>
+            </div>
+            <div class="my-4 col-12 col-lg-4 col-sm-6">
+                <div class="card animate__animated animate__zoomIn">
+                    <img src="./img/g2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-text">Woman walking her small dog</h5>
+                        <p class="card-text">Illustrations</p>
+                    </div>
+                </div>
+            </div>
+            <div class="my-4 col-12 col-lg-4 col-sm-6">
+                <div class="card animate__animated animate__zoomIn">
+                    <img src="./img/g3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-text">Oil bottle branding</h5>
+                        <p class="card-text">Branding</p>
+                    </div>
+                </div>
+            </div>
+            <div class="my-4 col-12 col-lg-4 col-sm-6">
+                <div class="card animate__animated animate__zoomIn">
+                    <img src="./img/g4.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-text">Smiling Woman</h5>
+                        <p class="card-text">Illustrations</p>
+                    </div>
+                </div>
+            </div>
+            <div class="my-4 col-12 col-lg-4 col-sm-6">
+                <div class="card animate__animated animate__zoomIn">
+                    <img src="./img/g5.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-text">Drink can design</h5>
+                        <p class="card-text">Packaging</p>
+                    </div>
+                </div>
+            </div>
+            <div class="my-4 col-12 col-lg-4 col-sm-6">
+                <div class="card animate__animated animate__zoomIn">
+                    <img src="./img/g6.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-text">I love you hand gesture</h5>
+                        <p class="card-text">Illustrations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -83,13 +158,11 @@
       referrerpolicy="no-referrer"
     ></script>
     <!-- model -->
-    <script src="../model/Product.js"></script>
-    <script src="../controller/Controller.js"></script>
+    <script src="./customer/model/Product.js"></script>
+    <script src="./customer/controller/Controller.js"></script>
     <!-- Service -->
-    <script src="../services/ProductsServ.js"></script>
-    <!-- Validation -->
-    <script src="../utility/validation.js"></script>
+    <script src="./customer/services/ProductsServ.js"></script>
     <!-- main JS -->
-    <script src="../main.js"></script>
+    <script src="./customer/view/"></script>
   </body>
 </html>

@@ -4,6 +4,15 @@ function renderProductsList(productsList) {
     for (var i = 0; i < productsList.length; i++) {
         var product = productsList[i];
         var contentTr = `
+            <img src=src="${product.img} class="card-img-top" alt="" width="200" height="200">
+            <div>
+                <h5>${product.name}</h5>
+                <p>${product.price}</p>
+                <p>${product.desc}</p>
+
+            </div>
+        `
+        /*`
             <tr>
                 <td>${product.id}</td>
                 <td>${product.name}</td>
@@ -22,6 +31,7 @@ function renderProductsList(productsList) {
                 </td>
             </tr>
         `
+        */
         content += contentTr;
     }
 
