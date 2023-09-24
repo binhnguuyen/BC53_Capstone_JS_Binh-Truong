@@ -162,7 +162,7 @@
             </button>
           </div>
           <div class="modal-body" id="inner">
-
+            <!-- phần để render sp ra cart -->
           </div>
           <div class="modal-footer">
             <button
@@ -170,9 +170,9 @@
               class="btn btn-secondary"
               data-dismiss="modal"
             >
-              Close
+              Đóng <i class="fa fa-window-close"></i>
             </button>
-            <button type="button" class="btn btn-primary">Understood</button>
+            <button type="button" class="btn btn-primary">Tiến hành thanh toán <i class="fa fa-credit-card"></i> </button>
           </div>
         </div>
       </div>
@@ -249,9 +249,13 @@
     ></script>
     <!-- model -->
     <script src="./customer/model/Product.js"></script>
+    <script src="./customer/model/ProductInCart.js"></script>
+    <script src="./customer/model/DSSP.js"></script>
+    <!-- Controller -->
     <script src="./customer/controller/Controller.js"></script>
     <!-- Service -->
     <script src="./customer/services/ProductsServ.js"></script>
+
     <!-- main JS -->
     <script src="./customer/Customer.js"></script>
   </body>

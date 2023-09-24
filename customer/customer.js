@@ -1,22 +1,12 @@
+/**
+ * @param {*} fetchProductsList 
+ * Chức năng: hàm lấy product từ API và render ra giao diện
+ * Tham số: không
+ * Chú ý: 
+ */
 function fetchProductsList() {
   // trước khi load axios
   onLoading();
-
-  // gọi axios ra
-  // axios({
-  //     url: "https://6500589318c34dee0cd4bff0.mockapi.io/products",
-  //     method: "GET",
-  // })
-  //     // ở đây then chỉ cần data thôi nên chỉ cần res.data
-  //     .then(function (res) {
-  //         console.log('res: ', res.data);
-  //         renderProductList(res.data);
-  //         // sau khi load đc data từ backend rồi
-  //         offLoading();
-  //     })
-  //     .catch(function (err) {
-  //         console.log('err: ', err);
-  //     });
 
   // định nghĩa bên ProductsServ
   getProductList()
@@ -36,6 +26,13 @@ function fetchProductsList() {
 
 fetchProductsList();
 
+
+/**
+ * @param {*} filSP 
+ * Chức năng: hàm lọc sản phẩm
+ * Tham số: không
+ * Chú ý: 
+ */
 function filSP() {
   var filterSP = document.querySelector("#filterSP").value;
   console.log("filterSP: ", filterSP);
@@ -77,59 +74,94 @@ function filSP() {
     });
 }
 
-// biến cart phải là global để nội dung trong nó ko bị xoá khi function addToCart chạy
-var cartSP = [];
-var cartSPQuan = [];
-var quantity = 0;
 
+/**
+ * @param {*} filSP 
+ * Chức năng: hàm thêm sản phẩm vào cart
+ * Tham số: không
+ * Chú ý: 
+ */
 function addToCart(idSP) {
   var alreadyInCart = false;
+  var idToDel;
+  var quantityInCart;
+
   editProductByID(idSP)
     .then(function (res) {
-      // gán cái get đc cho sp
-      var sp = res.data;
+      // gán cái get đc cho các yếu tố của sản phẩm muốn đựng trong cart
+      var idSP = res.data.id;
+      var nameSP = res.data.name;
+      var priceSP = res.data.price;
+      var imgSP = res.data.img;
+      var quantitySP = 1;
 
-      if (cartSP.length == 0) {
-        cartSP.push(sp);
-        cartSPQuan.push(quantity);
-      } else {
-        for (var i = 0; i < cartSP.length; i++) {
-          if (cartSP[i].id != sp.id) {
+      var cartSP = new ProductInCart (
+        idSP,
+        nameSP,
+        priceSP,
+        imgSP,
+        quantitySP
+      );
+
+      // kiểm tra xem dưới local storage có sp chưa!
+      if ( dsspInCart.product != null ) {
+        for (var i = 0; i < dsspInCart.product.length; i++) {
+          if ( dsspInCart.product[i].id != cartSP.id ) {
             // do nothing
-          } 
+          }
           else {
+            // nếu trùng thì cho trạng thái alreadyInCart sang true
             alreadyInCart = true;
+            // lấy id trùng đó gán vào biến
+            idToDel = cartSP.id;
+            // lấy số lượng của id sp đó gán vào biến
+            quantityInCart = dsspInCart.product[i].quantity;
+            console.log('quantityInCart: ', quantityInCart);
+            break;
           }
         }
-        if ( !alreadyInCart ) {
-          cartSP.push(sp);
-        }
+      }
+      else {
+        // do nothing
       }
 
-      if (cartSP.length == 0) {
+      console.log('alreadyInCart: ', alreadyInCart);
+      
+      // nếu chưa có thì mới thêm sp vô cart
+      if ( !alreadyInCart ) {
+        // cho sp vào cart
+        dsspInCart._themSanPham(cartSP);
+      }
+      else {
+        // Xoá sp có id trùng với sp định lưu vào
+        dsspInCart._xoaSanPham(idToDel);
+        //tăng số lượng lên 1
+        quantityInCart += 1;
+        // gán vào biến trong cart
+        cartSP.quantity = quantityInCart;
+        // cho sp vào cart
+        dsspInCart._themSanPham(cartSP);
+      }
+
+      if (dsspInCart.product.length == 0) {
         var productTable = (document.querySelector("#inner").innerHTML = `
           <h3 class=".text-danger">Chưa có hàng trong giỏ</h3>
         `);
       } 
       else {
-        renderProductsToCart(cartSP);
+        // render ra cart
+        renderProductsToCart(dsspInCart.product);
       }
 
-      /*
-      // hiển thị thông tin sp cần sửa lên modal
-      document.querySelector("#maSP").value = sp.id;
-      document.querySelector("#TenSP").value = sp.name;
-      document.querySelector("#GiaSP").value = sp.price;
-      document.querySelector("#screenSP").value = sp.screen;
-      document.querySelector("#backCameraSP").value = sp.backCamera;
-      document.querySelector("#frontCameraSP").value = sp.frontCamera;
-      document.querySelector("#HinhSP").value = sp.img;
-      document.querySelector("#descSP").value = sp.desc;
-      document.querySelector("#loaiSP").value = sp.type;
-      */
+      // lưu sp xuống dưới local storage
+      // localStorage: nơi lưu trữ (chỉ chấp nhận json) - json là 1 kiểudữ liệu
+      // JSON.stringify: convert array to json
+      var data = JSON.stringify(dsspInCart.product);
+      // lưu data xuống localStorage
+      localStorage.setItem("DSSP", data);
+
     })
     .catch(function (err) {
-      //   offLoading();
       console.log("err", err);
     });
 }
