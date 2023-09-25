@@ -18,7 +18,7 @@ function renderProductsList(productsList) {
                         <p><span>Price </span>${product.price}<span> $</span></p>
                         <p>${product.desc}</p>
                     </div>
-                    <button type="button" onclick ="addToCart(${product.id})" class="btn btn-primary">Thêm vào giỏ hàng</button>
+                    <button type="button" onclick ="plusOneToCart(${product.id})" class="btn btn-primary">Thêm vào giỏ hàng</button>
                 </div>
             </div> 
         `;
@@ -58,9 +58,9 @@ function renderProductsToCart(productsList) {
           <div class="qty-price">
             <div class="price">$ ${product.price}</div>
             <div class="qty">
-              <button class="minus-button" id="minus-button-1">-</button>
+              <button onclick="minusOneFromCart(${product.id})" class="minus-button" id="minus-button-1">-</button>
               <input type="number" id="qty-input" class="qty-input" step="1" min="1"  max="1000" name="qty-input" value="${product.quantity}" pattern="[0-9]*" title="Quantity"  inputmode="numeric">
-              <button class="plus-button" id="plus-button-1"> +</button>
+              <button onclick="plusOneToCart(${product.id})" class="plus-button" id="plus-button-1"> +</button>
               <input type="hidden" name="item-price" id="item-price-2" value="12.00">
             </div>
           </div>

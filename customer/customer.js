@@ -1,8 +1,8 @@
 /**
- * @param {*} fetchProductsList 
+ * @param {*} fetchProductsList
  * Chức năng: hàm lấy product từ API và render ra giao diện
  * Tham số: không
- * Chú ý: 
+ * Chú ý:
  */
 function fetchProductsList() {
   // trước khi load axios
@@ -26,12 +26,11 @@ function fetchProductsList() {
 
 fetchProductsList();
 
-
 /**
- * @param {*} filSP 
+ * @param {*} filSP
  * Chức năng: hàm lọc sản phẩm
  * Tham số: không
- * Chú ý: 
+ * Chú ý:
  */
 function filSP() {
   var filterSP = document.querySelector("#filterSP").value;
@@ -74,14 +73,13 @@ function filSP() {
     });
 }
 
-
 /**
- * @param {*} filSP 
+ * @param {*} filSP
  * Chức năng: hàm thêm sản phẩm vào cart
  * Tham số: không
- * Chú ý: 
+ * Chú ý:
  */
-function addToCart(idSP) {
+function plusOneToCart(idSP) {
   var alreadyInCart = false;
   var idToDel;
   var quantityInCart;
@@ -95,44 +93,38 @@ function addToCart(idSP) {
       var imgSP = res.data.img;
       var quantitySP = 1;
 
-      var cartSP = new ProductInCart (
-        idSP,
-        nameSP,
-        priceSP,
-        imgSP,
+      var cartSP = new ProductInCart(
+        idSP, 
+        nameSP, 
+        priceSP, 
+        imgSP, 
         quantitySP
       );
 
       // kiểm tra xem dưới local storage có sp chưa!
-      if ( dsspInCart.product != null ) {
+      if (dsspInCart.product != null) {
         for (var i = 0; i < dsspInCart.product.length; i++) {
-          if ( dsspInCart.product[i].id != cartSP.id ) {
+          if (dsspInCart.product[i].id != cartSP.id) {
             // do nothing
-          }
-          else {
+          } else {
             // nếu trùng thì cho trạng thái alreadyInCart sang true
             alreadyInCart = true;
             // lấy id trùng đó gán vào biến
             idToDel = cartSP.id;
             // lấy số lượng của id sp đó gán vào biến
             quantityInCart = dsspInCart.product[i].quantity;
-            console.log('quantityInCart: ', quantityInCart);
             break;
           }
         }
-      }
-      else {
+      } else {
         // do nothing
       }
 
-      console.log('alreadyInCart: ', alreadyInCart);
-      
       // nếu chưa có thì mới thêm sp vô cart
-      if ( !alreadyInCart ) {
+      if (!alreadyInCart) {
         // cho sp vào cart
         dsspInCart._themSanPham(cartSP);
-      }
-      else {
+      } else {
         // Xoá sp có id trùng với sp định lưu vào
         dsspInCart._xoaSanPham(idToDel);
         //tăng số lượng lên 1
@@ -147,8 +139,7 @@ function addToCart(idSP) {
         var productTable = (document.querySelector("#inner").innerHTML = `
           <h3 class=".text-danger">Chưa có hàng trong giỏ</h3>
         `);
-      } 
-      else {
+      } else {
         // render ra cart
         renderProductsToCart(dsspInCart.product);
       }
@@ -159,7 +150,96 @@ function addToCart(idSP) {
       var data = JSON.stringify(dsspInCart.product);
       // lưu data xuống localStorage
       localStorage.setItem("DSSP", data);
+    })
+    .catch(function (err) {
+      console.log("err", err);
+    });
+}
 
+
+/**
+ * @param {*} filSP
+ * Chức năng: hàm thêm sản phẩm vào cart
+ * Tham số: không
+ * Chú ý:
+ */
+function minusOneFromCart(idSP) {
+  var alreadyInCart = false;
+  var idToDel;
+  var quantityInCart;
+
+  editProductByID(idSP)
+    .then(function (res) {
+      // gán cái get đc cho các yếu tố của sản phẩm muốn đựng trong cart
+      var idSP = res.data.id;
+      var nameSP = res.data.name;
+      var priceSP = res.data.price;
+      var imgSP = res.data.img;
+      var quantitySP = 1;
+
+      var cartSP = new ProductInCart(
+        idSP, 
+        nameSP, 
+        priceSP, 
+        imgSP, 
+        quantitySP
+      );
+
+      // kiểm tra xem dưới local storage có sp chưa!
+      if (dsspInCart.product != null) {
+        for (var i = 0; i < dsspInCart.product.length; i++) {
+          if (dsspInCart.product[i].id != cartSP.id) {
+            // do nothing
+          } else {
+            // nếu trùng thì cho trạng thái alreadyInCart sang true
+            alreadyInCart = true;
+            // lấy id trùng đó gán vào biến
+            idToDel = cartSP.id;
+            // lấy số lượng của id sp đó gán vào biến
+            quantityInCart = dsspInCart.product[i].quantity;
+            break;
+          }
+        }
+      } else {
+        // do nothing
+      }
+
+      // nếu chưa có thì mới thêm sp vô cart
+      if (!alreadyInCart) {
+        // cho sp vào cart
+        dsspInCart._themSanPham(cartSP);
+      } else {
+        // Xoá sp có id trùng với sp định lưu vào
+        dsspInCart._xoaSanPham(idToDel);
+        //giảm số lượng lên 1
+        quantityInCart -= 1;
+        if ( quantityInCart === 0 ) {
+          dsspInCart._xoaSanPham(idToDel);
+        }
+        else {
+          // gán vào biến trong cart
+          cartSP.quantity = quantityInCart;
+          // cho sp vào cart
+          dsspInCart._themSanPham(cartSP);
+        }
+        
+      }
+
+      if (dsspInCart.product.length == 0) {
+        var productTable = (document.querySelector("#inner").innerHTML = `
+          <h3 class=".text-danger">Chưa có hàng trong giỏ</h3>
+        `);
+      } else {
+        // render ra cart
+        renderProductsToCart(dsspInCart.product);
+      }
+
+      // lưu sp xuống dưới local storage
+      // localStorage: nơi lưu trữ (chỉ chấp nhận json) - json là 1 kiểudữ liệu
+      // JSON.stringify: convert array to json
+      var data = JSON.stringify(dsspInCart.product);
+      // lưu data xuống localStorage
+      localStorage.setItem("DSSP", data);
     })
     .catch(function (err) {
       console.log("err", err);
