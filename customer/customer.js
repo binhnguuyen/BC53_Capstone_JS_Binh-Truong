@@ -93,13 +93,7 @@ function plusOneToCart(idSP) {
       var imgSP = res.data.img;
       var quantitySP = 1;
 
-      var cartSP = new ProductInCart(
-        idSP, 
-        nameSP, 
-        priceSP, 
-        imgSP, 
-        quantitySP
-      );
+      var cartSP = new ProductInCart(idSP, nameSP, priceSP, imgSP, quantitySP);
 
       // kiểm tra xem dưới local storage có sp chưa!
       if (dsspInCart.product != null) {
@@ -154,12 +148,14 @@ function plusOneToCart(idSP) {
       // DOM số lượng product ra bên cạnh giỏ hàng
       calcNumOfProduct();
 
+      // DOM tổng tiền của sản phẩm trong giỏ ra
+      thanhTien();
+      
     })
     .catch(function (err) {
       console.log("err", err);
     });
 }
-
 
 /**
  * @param {*} filSP
@@ -181,13 +177,7 @@ function minusOneFromCart(idSP) {
       var imgSP = res.data.img;
       var quantitySP = 1;
 
-      var cartSP = new ProductInCart(
-        idSP, 
-        nameSP, 
-        priceSP, 
-        imgSP, 
-        quantitySP
-      );
+      var cartSP = new ProductInCart(idSP, nameSP, priceSP, imgSP, quantitySP);
 
       // kiểm tra xem dưới local storage có sp chưa!
       if (dsspInCart.product != null) {
@@ -217,16 +207,14 @@ function minusOneFromCart(idSP) {
         dsspInCart._xoaSanPham(idToDel);
         //giảm số lượng lên 1
         quantityInCart -= 1;
-        if ( quantityInCart === 0 ) {
+        if (quantityInCart === 0) {
           dsspInCart._xoaSanPham(idToDel);
-        }
-        else {
+        } else {
           // gán vào biến trong cart
           cartSP.quantity = quantityInCart;
           // cho sp vào cart
           dsspInCart._themSanPham(cartSP);
         }
-        
       }
 
       if (dsspInCart.product.length == 0) {
@@ -248,12 +236,13 @@ function minusOneFromCart(idSP) {
       // DOM số lượng product ra bên cạnh giỏ hàng
       calcNumOfProduct();
 
+      // DOM tổng tiền của sản phẩm trong giỏ ra
+      thanhTien();
     })
     .catch(function (err) {
       console.log("err", err);
     });
 }
-
 
 /**
  * @param {*} calcNumOfProduct
@@ -270,9 +259,39 @@ function calcNumOfProduct() {
   }
   res = `
     ${sum}
-  ` 
+  `;
   numOfProduct.innerHTML = res;
 }
 
 // DOM số lượng product ra bên cạnh giỏ hàng
 calcNumOfProduct();
+
+/**
+ * @param {*} calcNumOfProduct
+ * Chức năng: hàm lọc sản phẩm
+ * Tham số: không
+ * Chú ý:
+ */
+function thanhTien() {
+  var res;
+  var sum = 0;
+  var num;
+  var thanhTien = getEle("#thanhTien");
+  for (var i = 0; i < dsspInCart.product.length; i++) {
+    sum += dsspInCart.product[i].tinhTienSanPham();
+    num += dsspInCart.product[i].quantity;
+    // sum += dsspInCart.product[i].quantity * dsspInCart.product[i].price;
+  }
+  
+  if ( num !== 0 ) {
+    res = `
+      <h3>Thành tiền: </h3>
+      <h4><span>$</span><spanclass="mr-auto">${sum}</spanclass=></h4>
+    `;
+  }
+  else {
+    res = ``;
+  }
+  thanhTien.innerHTML = res;
+}
+

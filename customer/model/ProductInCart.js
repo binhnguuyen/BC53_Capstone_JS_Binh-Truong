@@ -7,5 +7,10 @@ function ProductInCart(_id, _name, _price, _image, _quantity){
     this.quantity = _quantity;
 
     // method
+    this.tinhTienSanPham = function () {
+        var thanhTienSanPham = 0;
+        thanhTienSanPham = Number(this.price) * Number(this.quantity);
+        return thanhTienSanPham;
+    }
 
 }
