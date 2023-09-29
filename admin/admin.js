@@ -22,7 +22,6 @@ function fetchProductsList() {
   getProductList()
     // thành công thì in ra sp
     .then(function (res) {
-      console.log("res", res.data);
       renderProductsList(res.data);
       offLoading();
     })
