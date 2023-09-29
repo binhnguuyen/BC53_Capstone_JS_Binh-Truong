@@ -303,7 +303,6 @@ function thanhTien() {
     res = ``;
   }
 
-  
   thanhTien.innerHTML = res;
 }
 
@@ -351,3 +350,29 @@ function thanhToan() {
   thanhToan.innerHTML = res;
 }
 
+
+function removeProductFromCart(idSP) {
+
+  dsspInCart._xoaSanPham(idSP);
+  renderProductsToCart(dsspInCart.product);
+
+  var data = JSON.stringify(dsspInCart.product);
+  // lưu data xuống localStorage
+  localStorage.setItem("DSSP", data);
+
+  // thanh toán xong thì DOM lại số lượng product ra bên cạnh giỏ hàng
+  calcNumOfProduct();
+
+  // DOM tổng tiền của sản phẩm trong giỏ ra
+  thanhTien();
+  console.log('dsspInCart.product: ', dsspInCart.product);
+
+  if ( dsspInCart.product.length === 0 ) {
+    var formThanhTien = getEle("#thanhTien");
+    var res = `
+      <h3>Bạn đã xoá tất cả sản phẩm ra khỏi giỏ</h3>
+    `; 
+    formThanhTien.innerHTML = res;
+  }
+  
+}
