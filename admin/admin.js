@@ -214,3 +214,7 @@ getEle("#btnThemSP").onclick = function() {
   // ẩn button update
   getEle("#btnUpdate").style.display = "none";
 };
+
+function resetForm() {
+  getEle("#modalForm").reset();
+}
