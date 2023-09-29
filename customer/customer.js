@@ -365,7 +365,6 @@ function removeProductFromCart(idSP) {
 
   // DOM tổng tiền của sản phẩm trong giỏ ra
   thanhTien();
-  console.log('dsspInCart.product: ', dsspInCart.product);
 
   if ( dsspInCart.product.length === 0 ) {
     var formThanhTien = getEle("#thanhTien");
