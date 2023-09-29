@@ -49,7 +49,7 @@ function renderProductsToCart(productsList) {
     var contentTr = 
     // Giao diện 2
     `
-      <a href="#" class="product-link">
+      <a href="${product.img}" target="_blank" class="product-link">
         <div class="product-left">
           <img src="${product.img}" alt="Product Photo" width="250">
         </div>
