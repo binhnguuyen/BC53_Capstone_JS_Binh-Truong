@@ -85,9 +85,8 @@
               <a
                 class="nav-link"
                 href="./admin/view/admin.html"
-                target="”_blank”"
               >
-                Admin Page <span class="sr-only">(current)</span></a
+                Admin Page <i class="fa fa-forward"></i><span class="sr-only">(current)</span></a
               >
             </li>
           </ul>
@@ -167,7 +166,12 @@
 
             </div>
             <!-- phần để in tổng tiền ra cart -->
-            <div id="thanhTien">
+            <div id="thanhTien" class="d-none">
+              
+            </div>
+
+            <!-- phần để in thông báo giao dịch-->
+            <div id="thanhToan" class="d-none">
               
             </div>
           </div>
@@ -181,7 +185,7 @@
             >
               Đóng <i class="fa fa-window-close"></i>
             </button>
-            <button type="button" class="btn btn-primary">Tiến hành thanh toán <i class="fa fa-credit-card"></i> </button>
+            <button type="button" class="btn btn-primary" onclick="thanhToan()">Tiến hành thanh toán <i class="fa fa-credit-card"></i> </button>
           </div>
         </div>
       </div>

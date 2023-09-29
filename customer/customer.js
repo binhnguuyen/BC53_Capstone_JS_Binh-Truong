@@ -167,7 +167,8 @@ function minusOneFromCart(idSP) {
   var alreadyInCart = false;
   var idToDel;
   var quantityInCart;
-
+  var thanhTien = getEle("#thanhTien");
+  
   editProductByID(idSP)
     .then(function (res) {
       // gán cái get đc cho các yếu tố của sản phẩm muốn đựng trong cart
@@ -221,6 +222,8 @@ function minusOneFromCart(idSP) {
         var productTable = (document.querySelector("#inner").innerHTML = `
           <h3 class=".text-danger">Chưa có hàng trong giỏ</h3>
         `);
+        thanhTien.classList.remove("d-block");
+        thanhTien.classList.add("d-none");
       } else {
         // render ra cart
         renderProductsToCart(dsspInCart.product);
@@ -244,6 +247,7 @@ function minusOneFromCart(idSP) {
     });
 }
 
+
 /**
  * @param {*} calcNumOfProduct
  * Chức năng: hàm lọc sản phẩm
@@ -261,14 +265,16 @@ function calcNumOfProduct() {
     ${sum}
   `;
   numOfProduct.innerHTML = res;
+  return sum
 }
 
 // DOM số lượng product ra bên cạnh giỏ hàng
 calcNumOfProduct();
 
+
 /**
- * @param {*} calcNumOfProduct
- * Chức năng: hàm lọc sản phẩm
+ * @param {*} thanhTien
+ * Chức năng: hàm tính tiền sp trong giỏ
  * Tham số: không
  * Chú ý:
  */
@@ -283,15 +289,65 @@ function thanhTien() {
     // sum += dsspInCart.product[i].quantity * dsspInCart.product[i].price;
   }
   
-  if ( num !== 0 ) {
+  if ( dsspInCart.product !== null ) {
+    thanhTien.classList.remove("d-none");
+    thanhTien.classList.add("d-block");
     res = `
       <h3>Thành tiền: </h3>
       <h4><span>$</span><spanclass="mr-auto">${sum}</spanclass=></h4>
     `;
   }
   else {
+    thanhTien.classList.remove("d-block");
+    thanhTien.classList.add("d-none");
     res = ``;
   }
+
+  
   thanhTien.innerHTML = res;
+}
+
+
+/**
+ * @param {*} thanhToan
+ * Chức năng: hàm thêm thanh toán
+ * Tham số: không
+ * Chú ý:
+ */
+function thanhToan() {
+  var res;
+  var thanhTien = getEle("#thanhTien");
+  var thanhToan = getEle("#thanhToan");
+  var length = dsspInCart.product.length;
+
+
+    if ( dsspInCart.product != null ) {
+      for ( var i = 0; i < length; i++ ) {
+        var idToClear = dsspInCart.product[i].id;
+        dsspInCart._xoaSanPham(idToClear);
+        length = dsspInCart.product.length;
+        i--;
+        if ( length === 0 ) {
+          break;
+        }
+      }
+    }
+    renderProductsToCart(dsspInCart.product);
+    var data = JSON.stringify(dsspInCart.product);
+    // lưu data xuống localStorage
+    localStorage.setItem("DSSP", data);
+    // thanh toán xong thì DOM lại số lượng product ra bên cạnh giỏ hàng
+    calcNumOfProduct();
+
+  thanhTien.classList.remove("d-block");
+  thanhTien.classList.add("d-none");
+  thanhToan.classList.remove("d-none");
+  thanhToan.classList.add("d-block");
+  res = `
+    <h3>Giao dịch thanh công!</h3>
+    <h3>Xin cảm ơn bạn đã thanh toán</h3>
+  `; 
+  
+  thanhToan.innerHTML = res;
 }
 
