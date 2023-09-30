@@ -1,336 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Quản lý sản phẩm</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
-      crossorigin="anonymous"
-    />
 
-    <!-- tạo style cho spinner -->
-    <style>
-      #spinner {
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        /* color: blueviolet; */
-        background: #fff;
-        z-index: 99;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        display: none;
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>BT-Mobile</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+  <!-- Font Awersome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <body>
-    <div class="container">
-      <div id="spinner">
-        <div class="spinner-border text-primary" role="status">
-          <span class="sr-only">Loading...</span>
-        </div>
+  <!-- Font Family -->
+  <link href="https://fonts.cdnfonts.com/css/helvetica-neue-55" rel="stylesheet">
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
+  </style>
+
+  
+                
+
+  <!-- tạo style cho spinner -->
+  <style>
+    #spinner {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      /* color: blueviolet; */
+      background: #fff;
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div id="spinner">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
       </div>
+    </div>
 
-      <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button
-          class="navbar-toggler d-lg-none"
-          type="button"
-          data-toggle="collapse"
-          data-target="#collapsibleNavId"
-          aria-controls="collapsibleNavId"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        ></button>
-        <div class="collapse navbar-collapse" id="collapsibleNavId">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"
-                >Home <span class="sr-only">(current)</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="dropdownId"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-                >Dropdown</a
-              >
-              <div class="dropdown-menu" aria-labelledby="dropdownId">
-                <a class="dropdown-item" href="#">Action 1</a>
-                <a class="dropdown-item" href="#">Action 2</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-      <!-- <header class="display-4 my-4">Thực hành javascript - axios</header> -->
-      <!-- Phan tab menu -->
-      <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item">
-          <a
-            class="nav-link active"
-            href="#DanhSachSP"
-            role="tab"
-            data-toggle="tab"
-            >Danh sách sản phẩm</a
-          >
-        </li>
-      </ul>
-      <br />
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <!--Danh sách sản phẩm -->
-        <div role="tabpanel" class="tab-pane in active" id="DanhSachSP">
-          <div class="row">
-            <div class="col-md-8">
-              <!-- BEGIN BUTTOM THÊM MỚI -->
-              <button
-                id="btnThemSP"
-                class="btn btn-success"
-                data-toggle="modal"
-                data-target="#myModal"
-              >
-                <i class="fa fa-plus mr-1"></i>
-                Thêm Mới
-              </button>
-              <!-- END BUTTON THÊM MỚI -->
-              <!-- BEGIN BUTTOM SẮP XẾP TĂNG-->
-              <button
-                id="btnSapXepTang"
-                class="btn btn-success" onclick="sortInAscending()"
-              >
-                <i class="fa fa-arrow-circle-up"></i>
-                Sắp xếp tăng dần
-              </button>
-              <!-- END BUTTON SẮP XẾP TĂNG -->
-              <!-- BEGIN BUTTOM SẮP XẾP GIẢM-->
-              <button
-                id="btnSapXepGiam"
-                class="btn btn-success" onclick="sortInDescending()"
-              >
-                <i class="fa fa-arrow-circle-down"></i>
-                Sắp xếp giảm dần
-              </button>
-              <!-- END BUTTON SẮP XẾP GIẢM -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">BT-Mobile</a>
+      <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
+      <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownId">
+              <a class="dropdown-item" href="#">Action 1</a>
+              <a class="dropdown-item" href="#">Action 2</a>
             </div>
-            <div class="col-md-4">
-              <!-- BEGIN TÌM KIẾM -->
-              <div class="input-group mb-3">
-                <input id="txtSearch"
-                  type="text"
-                  class="form-control"
-                  placeholder="Nhập từ khóa"
-                  aria-label="Recipient's username"
-                  aria-describedby="basic-addon2"
-                />
-                <div class="input-group-append">
-                  <span onclick="searchProductByName()" class="input-group-text" id="basic-addon2"
-                    ><i class="fa fa-search"></i
-                  ></span>
-                </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- <header class="display-4 my-4">Thực hành javascript - axios</header> -->
+    <!-- Phan tab menu -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" href="#DanhSachSP" role="tab" data-toggle="tab">Danh sách sản phẩm</a>
+      </li>
+    </ul>
+    <br />
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <!--Danh sách sản phẩm -->
+      <div role="tabpanel" class="tab-pane in active" id="DanhSachSP">
+        <div class="row">
+          <div class="col-md-8">
+            <!-- BEGIN BUTTOM THÊM MỚI -->
+            <button id="btnThemSP" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+              <i class="fa fa-plus mr-1"></i>
+              Thêm Mới
+            </button>
+            <!-- END BUTTON THÊM MỚI -->
+            <!-- BEGIN BUTTOM SẮP XẾP TĂNG-->
+            <button id="btnSapXepTang" class="btn btn-success" onclick="sortInAscending()">
+              <i class="fa fa-arrow-circle-up"></i>
+              Sắp xếp tăng dần
+            </button>
+            <!-- END BUTTON SẮP XẾP TĂNG -->
+            <!-- BEGIN BUTTOM SẮP XẾP GIẢM-->
+            <button id="btnSapXepGiam" class="btn btn-success" onclick="sortInDescending()">
+              <i class="fa fa-arrow-circle-down"></i>
+              Sắp xếp giảm dần
+            </button>
+            <!-- END BUTTON SẮP XẾP GIẢM -->
+          </div>
+          <div class="col-md-4">
+            <!-- BEGIN TÌM KIẾM -->
+            <div class="input-group mb-3">
+              <input id="txtSearch" type="text" class="form-control" placeholder="Nhập từ khóa"
+                aria-label="Recipient's username" aria-describedby="basic-addon2" />
+              <div class="input-group-append">
+                <span onclick="searchProductByName()" class="input-group-text" id="basic-addon2"><i
+                    class="fa fa-search"></i></span>
               </div>
-              <!-- END TÌM KIẾM -->
+            </div>
+            <!-- END TÌM KIẾM -->
+          </div>
+        </div>
+        <div class="clear-fix"></div>
+        <div class="tblSanPham" id="tblSanPham">
+          <!-- BEGIN TABLE SẢN PHẨM -->
+          <table class="table table-bordered">
+            <thead>
+              <th>STT</th>
+              <th>Tên Sản Phẩm</th>
+              <th>Giá</th>
+              <th>Màn hình</th>
+              <th>Camera sau</th>
+              <th>Camera trước</th>
+              <th>Hình ảnh</th>
+              <th>Mô tả</th>
+              <th>Hãng</th>
+              <th>Action</th>
+            </thead>
+            <tbody id="tblDanhSachSP"></tbody>
+          </table>
+          <!-- END TABLE SẢN PHẨM -->
+        </div>
+        <br />
+      </div>
+      <!-- Kết thúc danh sách sản phẩm -->
+    </div>
+
+    <!--KetThuc Tabmenu-->
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Modal Heading</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Mã Sản Phẩm</label>
+              <input id="maSP" class="form-control" placeholder="Mã sản phẩm" readonly />
+              <span class="sp-thongbao text-danger" id="tbmaSP"></span>
+            </div>
+            <div class="form-group">
+              <label>Tên Sản Phẩm</label>
+              <input id="TenSP" class="form-control" placeholder="Ex: Iphone 11" />
+              <span class="sp-thongbao text-danger" id="tbTenSP"></span>
+            </div>
+            <div class="form-group">
+              <label>Giá</label>
+              <input id="GiaSP" class="form-control" placeholder="Ex: 20000000" />
+              <span class="sp-thongbao text-danger" id="tbGiaSP"></span>
+            </div>
+            <div class="form-group">
+              <label>Màn hình</label>
+              <input id="screenSP" class="form-control" placeholder="Ex: screen 60" />
+              <span class="sp-thongbao text-danger" id="tbscreenSP"></span>
+            </div>
+            <div class="form-group">
+              <label>Camera sau</label>
+              <input id="backCameraSP" class="form-control" placeholder="Ex: 40 MP" />
+              <span class="sp-thongbao text-danger" id="tbbackCameraSP"></span>
+            </div>
+            <div class="form-group">
+              <label>Camera trước</label>
+              <input id="frontCameraSP" class="form-control" placeholder="Chính 20 MP, phụ 12MP" />
+              <span class="sp-thongbao text-danger" id="tbfrontCameraSP"></span>
+            </div>
+            <div class="form-group">
+              <label>Hình Ảnh</label>
+              <input id="HinhSP" class="form-control" placeholder="Ex: http://..." />
+              <span class="sp-thongbao text-danger" id="tbHinhSP"></span>
+            </div>
+            <div class="form-group">
+              <label>Mô tả</label>
+              <input id="descSP" class="form-control" placeholder="Ex: Cấu hình khủng, màn hình 4K..." />
+              <span class="sp-thongbao text-danger" id="tbdescSP"></span>
+            </div>
+            <div class="form-group">
+              <label for="">Loại sản phẩm: </label>
+              <select class="form-control" id="loaiSP">
+                <option value="apple">Apple</option>
+                <option value="samsung">Samsung</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="sp-thongbao text-danger" id="tbloaiSP"></span>
             </div>
           </div>
-          <div class="clear-fix"></div>
-          <div class="tblSanPham" id="tblSanPham">
-            <!-- BEGIN TABLE SẢN PHẨM -->
-            <table class="table table-bordered">
-              <thead>
-                <th>STT</th>
-                <th>Tên Sản Phẩm</th>
-                <th>Giá</th>
-                <th>Màn hình</th>
-                <th>Camera sau</th>
-                <th>Camera trước</th>
-                <th>Hình ảnh</th>
-                <th>Mô tả</th>
-                <th>Hãng</th>
-                <th>Action</th>
-              </thead>
-              <tbody id="tblDanhSachSP"></tbody>
-            </table>
-            <!-- END TABLE SẢN PHẨM -->
-          </div>
-          <br />
-        </div>
-        <!-- Kết thúc danh sách sản phẩm -->
-      </div>
-
-      <!--KetThuc Tabmenu-->
-
-      <!-- The Modal -->
-      <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h4 class="modal-title">Modal Heading</h4>
-              <button type="button" class="close" data-dismiss="modal">
-                &times;
-              </button>
-            </div>
-            <!-- Modal body -->
-            <div class="modal-body">
-              <div class="form-group">
-                <label>Mã Sản Phẩm</label>
-                <input
-                  id="maSP"
-                  class="form-control"
-                  placeholder="Mã sản phẩm"
-                  readonly
-                />
-                <span class="sp-thongbao text-danger" id="tbmaSP"></span>
-              </div>
-              <div class="form-group">
-                <label>Tên Sản Phẩm</label>
-                <input
-                  id="TenSP"
-                  class="form-control"
-                  placeholder="Ex: Iphone 11"
-                />
-                <span class="sp-thongbao text-danger" id="tbTenSP"></span>
-              </div>
-              <div class="form-group">
-                <label>Giá</label>
-                <input
-                  id="GiaSP"
-                  class="form-control"
-                  placeholder="Ex: 20000000"
-                />
-                <span class="sp-thongbao text-danger" id="tbGiaSP"></span>
-              </div>
-              <div class="form-group">
-                <label>Màn hình</label>
-                <input
-                  id="screenSP"
-                  class="form-control"
-                  placeholder="Ex: screen 60"
-                />
-                <span class="sp-thongbao text-danger" id="tbscreenSP"></span>
-              </div>
-              <div class="form-group">
-                <label>Camera sau</label>
-                <input
-                  id="backCameraSP"
-                  class="form-control"
-                  placeholder="Ex: 40 MP"
-                />
-                <span class="sp-thongbao text-danger" id="tbbackCameraSP"></span>
-              </div>
-              <div class="form-group">
-                <label>Camera trước</label>
-                <input
-                  id="frontCameraSP"
-                  class="form-control"
-                  placeholder="Chính 20 MP, phụ 12MP"
-                />
-                <span class="sp-thongbao text-danger" id="tbfrontCameraSP"></span>
-              </div>
-              <div class="form-group">
-                <label>Hình Ảnh</label>
-                <input
-                  id="HinhSP"
-                  class="form-control"
-                  placeholder="Ex: http://..."
-                />
-                <span class="sp-thongbao text-danger" id="tbHinhSP"></span>
-              </div>
-              <div class="form-group">
-                <label>Mô tả</label>
-                <input
-                  id="descSP"
-                  class="form-control"
-                  placeholder="Ex: Cấu hình khủng, màn hình 4K..."
-                />
-                <span class="sp-thongbao text-danger" id="tbdescSP"></span>
-              </div>
-              <div class="form-group">
-                <label for="">Loại sản phẩm: </label>
-                <select class="form-control" id="loaiSP">
-                  <option value="apple">Apple</option>
-                  <option value="samsung">Samsung</option>
-                  <option value="other">Other</option>
-                </select>
-                <span class="sp-thongbao text-danger" id="tbloaiSP"></span>
-              </div>
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer">
-              <button class="btn btn-danger" onclick="resetForm()">
-                Reset Form
-              </button>
-              <button class="btn btn-dark" onclick="updateProduct()">
-                Update
-              </button>
-              <button class="btn btn-success" onclick="addProduct()">
-                Add
-              </button>
-            </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button class="btn btn-danger" onclick="resetForm()">
+              Reset Form
+            </button>
+            <button class="btn btn-dark" onclick="updateProduct()">
+              Update
+            </button>
+            <button class="btn btn-success" onclick="addProduct()">
+              Add
+            </button>
           </div>
         </div>
       </div>
     </div>
-    <div id="container"></div>
-    <style>
-      #container {
-        min-width: 310px;
-        max-width: 800px;
-        height: 400px;
-        margin: 0 auto;
-      }
-    </style>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/series-label.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <!-- Axios library -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"
-      integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <!-- model -->
-    <script src="../model/Product.js"></script>
-    <script src="../controller/Controller.js"></script>
-    <!-- Service -->
-    <script src="../services/ProductsServ.js"></script>
-    <!-- Validation -->
-    <script src="../utility/validation.js"></script>
-    <!-- main JS -->
-    <script src="../admin.js"></script>
-  </body>
+  </div>
+  <div id="container"></div>
+  <style>
+    #container {
+      min-width: 310px;
+      max-width: 800px;
+      height: 400px;
+      margin: 0 auto;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/series-label.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <!-- Axios library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"
+    integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- model -->
+  <script src="../model/Product.js"></script>
+  <script src="../controller/Controller.js"></script>
+  <!-- Service -->
+  <script src="../services/ProductsServ.js"></script>
+  <!-- Validation -->
+  <script src="../utility/validation.js"></script>
+  <!-- main JS -->
+  <script src="../admin.js"></script>
+</body>
+
 </html>

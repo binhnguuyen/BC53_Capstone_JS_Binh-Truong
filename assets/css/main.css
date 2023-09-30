@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  background: #E7ECF4;
+}
+
+.themebox {
+  width: 200px;
+  background: #e2ebfc;
+  position: fixed;
+  top: 100px;
+  right: 0;
+  z-index: 1;
+  padding: 20px;
+}
+
+.header .form-control {
+  background-color: transparent;
+  border: transparent;
+  color: #fff;
+}
+.header .form-control .item-control {
+  color: black;
+}
+
+.header {
+  color: #fff;
+}
+.header__bottom {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  background: #171c24;
+}
+.darkMode .header {
+  background: #353536;
+}
+.header .navbar .navbar-brand {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 400;
+}
+.header .navbar-nav .nav-item .nav-link {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 400;
+}
+.header .navbar-nav .nav-item.active .nav-link {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 400;
+}
+
+.carousel {
+  margin-top: 61px;
+}
+.carousel .owl-carousel .item img {
+  height: 590px;
+  background-size: contain;
+}/*# sourceMappingURL=main.css.map */
