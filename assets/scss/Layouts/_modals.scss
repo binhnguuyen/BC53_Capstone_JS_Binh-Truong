@@ -1,0 +1,69 @@
+.modal {
+    .modal-dialog {
+        .modal-content {
+            background-color:#dadada;
+            .modal-header {
+                
+                margin-top: 30px;   
+                .modal-title {}
+            }
+
+            .modal-body {
+                .product-link {
+                    &:hover{
+                    text-decoration: none;
+                    list-style: none;
+                    }
+                    .product-left {
+                        background-color: rgb(234, 239, 239) ;
+                        text-align: center;
+                    }
+                    .product-right {
+                        list-style: none;
+                        h3 {
+                            color: #000;  
+                            margin-top: 12px;
+                            te
+                            &:hover{
+                                text-decoration: none;
+                                list-style: none;
+                            }                     
+                        }
+                        .qty-price{                           
+                            .price{
+                                font-size: 18px;
+                               color: rgb(231, 34, 34);
+                               margin-bottom: 12px;
+                            }
+                        }
+                        .qty{
+                            .minus-button{
+                                width: 20px;
+                                font-size: 16px;
+                                
+                            }
+                            .plus-button{
+                                width: 20px;
+                                font-size: 16px;
+                            }
+                            .qty-input{
+                                text-align: center;
+                                
+                            }
+                        }
+                    }
+                }
+            }
+            .modal-footer{
+               .modalBtn1{
+                background-color: rgb(185 28 28);
+                color: $color-white-1;
+               }
+               .modalBtn2{
+                background-color: rgb(126 34 206);
+                color: $color-white-1;
+               }
+            }
+        }
+    }
+}
