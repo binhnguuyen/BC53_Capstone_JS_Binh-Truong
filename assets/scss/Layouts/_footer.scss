@@ -1,7 +1,7 @@
 footer {
     margin-top: 20px;
     padding-top: 16px;
-    background-color: #f8f8f8;
+    background-color: $color-bg-2;
 
     .footer__wrapper {
         display: grid;
@@ -11,13 +11,14 @@ footer {
         .footer__link {
             display: grid;
             grid-template-rows: 1fr;
+            color: rgb(221, 213, 213);
+            text-decoration: none;
 
             .footer__social {
                 margin-bottom: 10px;
 
                 .social__content span {
                     margin-right: 20px;
-
                 }
 
                 .social__content span i {
@@ -25,8 +26,9 @@ footer {
                 }
 
                 .social__content span:hover {
-                    color: #d70018;
+                    // color: #EBA768;
                     cursor: pointer;
+                    text-decoration: none;
                 }
             }
 
@@ -43,6 +45,7 @@ footer {
 
             .payment__content span img:hover {
                 cursor: pointer;
+                text-decoration: none;
             }
         }
 
@@ -51,6 +54,7 @@ footer {
     .footer__title {
         margin-bottom: 10px;
         font-weight: 500;
+        color: rgb(226, 42, 42);
     }
 
     ul li {
@@ -58,28 +62,31 @@ footer {
         text-decoration: none;
         color: black;
         margin-bottom: 10px;
+
     }
-    
-    ul li a{
+
+    ul li a {
         text-decoration: none;
         list-style: none;
-        color: black;
+        color: rgb(243, 234, 234);
     }
 
     ul li a:hover {
-        color: #d70018;
+        color: #EBA768;
+        text-decoration: none;
     }
 
     .footer__copyright {
         margin-top: 20px;
         padding: 20px 25px;
         font-size: 14px;
-        border-top: 1px solid #d70018;
+        border-top: 1px solid #EBA768;
+        color: rgb(243, 234, 234);
     }
 
     .footer__copyright a {
         text-decoration: underline;
-        color: #d70018;
+        color: red;
         font-weight: 500;
     }
 }

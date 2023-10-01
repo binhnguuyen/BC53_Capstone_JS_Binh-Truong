@@ -30,16 +30,23 @@
 //     );
 //   }
 // }
-.carousel{
+.carousel {
   margin-top: 61px;
-      .owl-carousel{
-        .item{
-          img{
-              height: 590px;
-              // object-fit: cover;
-              background-size: contain  ;
-          }
-        }
+
+  .owl-carousel {
+    .item {
+      img {
+        height: 590px;
+        background-size: contain;
       }
     }
-  
+  }
+}
+
+.owl-theme {
+  .owl-dots {
+    .owl-dot span {
+      margin-right: 10px;
+    }
+  }
+}

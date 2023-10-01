@@ -7,6 +7,8 @@
     z-index: 9999;
     background: $color-bg-2;
   }
+  
+  
 
   @include darkMode2 {
     background: $color-dark-1;
@@ -19,7 +21,19 @@
   .navbar {
     .navbar-brand {
       @include styleText(16px, $color-white-1, 400)
-    
+    }
+    .navbar-collapse{
+      .btn-group{
+        .form-control{
+          background-color: transparent;
+          color: white;
+          border: none; 
+          cursor: pointer;
+          .item-control{
+            color: black;
+          }
+        }
+      }
     }
   }
 
