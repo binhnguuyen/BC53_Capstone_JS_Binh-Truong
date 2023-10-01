@@ -150,6 +150,10 @@ function plusOneToCart(idSP) {
       var data = JSON.stringify(dsspInCart.product);
       // lưu data xuống localStorage
       localStorage.setItem("DSSP", data);
+
+      // DOM số lượng product ra bên cạnh giỏ hàng
+      calcNumOfProduct();
+
     })
     .catch(function (err) {
       console.log("err", err);
@@ -240,8 +244,35 @@ function minusOneFromCart(idSP) {
       var data = JSON.stringify(dsspInCart.product);
       // lưu data xuống localStorage
       localStorage.setItem("DSSP", data);
+
+      // DOM số lượng product ra bên cạnh giỏ hàng
+      calcNumOfProduct();
+
     })
     .catch(function (err) {
       console.log("err", err);
     });
 }
+
+
+/**
+ * @param {*} calcNumOfProduct
+ * Chức năng: hàm lọc sản phẩm
+ * Tham số: không
+ * Chú ý:
+ */
+function calcNumOfProduct() {
+  var res;
+  var numOfProduct = getEle("#numOfProduct");
+  var sum = 0;
+  for (var i = 0; i < dsspInCart.product.length; i++) {
+    sum += dsspInCart.product[i].quantity;
+  }
+  res = `
+    ${sum}
+  ` 
+  numOfProduct.innerHTML = res;
+}
+
+// DOM số lượng product ra bên cạnh giỏ hàng
+calcNumOfProduct();

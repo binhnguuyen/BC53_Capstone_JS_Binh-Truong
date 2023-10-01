@@ -94,21 +94,25 @@
                 Admin Page <span class="sr-only">(current)</span></a>
             </li>
           </ul>
-          <div class="btn-group btn-select">
-            <!-- <i class="fa-solid fa-calendar-check"></i> -->
-            <select class="form-control " id="filterSP" onchange="filSP()">
-              <option class="item-control" value="All">Chọn sản phẩm</option>
+          <div class="btn-group">
+            <select class="form-control" id="filterSP" onchange="filSP()">
+              <option class="item-control" value="All">Sản phẩm</option>
               <option class="item-control" value="Apple">Apple</option>
               <option class="item-control" value="Samsung">Samsung</option>
-              <option class="item-control" value="Oppo">Oppo</option>
-              <option class="item-control" value="Xiaomi">Xiaomi</option>
-              <option class="item-control" value="Other">Other</option>
             </select>
           </div>
           <br />
           <span class="sp-thongbao text-danger d-none" id="tbFilterSP">Không tìm thấy sản phẩm</span>
-          <button type="button" class="btn btn-card text-white" data-toggle="modal" data-target="#staticBackdrop">
-            Giỏ hàng<i class="fa fa-shopping-cart mx-1"></i>
+          <!-- <a class="btn btn-info js-open" data-target="#js-favourites"
+          aria-controls="js-favourites" href="#">
+            <span class="bag-icon">Your Cart</span>
+            <span class="bag-number"></span>
+            <i class="fa fa-shopping-cart"></i>
+          </a> -->
+          <!-- data-toggle="collapse" -->
+          <button type="button" class="btn text-white" data-toggle="modal" data-target="#staticBackdrop">
+            Giỏ hàng
+            <i class="fa fa-shopping-cart"></i>
           </button>
         </div>
       </div>
@@ -218,6 +222,129 @@
       </div>
     </div>
   </section>
+
+  <footer>
+    <div class="content">
+      <div class="footer__wrapper">
+        <div class="footer__suport">
+          <div class="footer__title">
+            <span>Hỗ trợ khách hàng</span>
+          </div>
+          <ul>
+            <li>
+              <a href="">Dịch vụ sửa chữa</a>
+            </li>
+            <li>
+              <a href="">Lịch sử mua hàng</a>
+            </li>
+            <li>
+              <a href="">Thu cũ đổi mới</a>
+            </li>
+            <li>
+              <a href="">Trả góp</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer__policy">
+          <div class="footer__title">
+            <span>Chính sách khách hàng</span>
+          </div>
+          <ul>
+            <li>
+              <a href="">Hình thức thanh toán</a>
+            </li>
+            <li>
+              <a href="">Chính sách đổi trả hàng</a>
+            </li>
+            <li>
+              <a href="">Chính sách bảo hành</a>
+            </li>
+            <li>
+              <a href="">Chính sách vận chuyển</a>
+            </li>
+            <li>
+              <a href="">Chính sách Bảo mật thông tin</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer__us">
+          <div class="footer__title">
+            <span>Về chúng tôi PT Mobile</span>
+          </div>
+          <ul>
+            <li>
+              <a href="">Hình thức thanh toán</a>
+            </li>
+            <li>
+              <a href="">Hệ thống cửa hàng</a>
+            </li>
+            <li>
+              <a href="">Tin công nghệ</a>
+            </li>
+            <li>
+              <a href="">Đánh giá</a>
+            </li>
+            <li>
+              <a href="">Tư vấn</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer__link">
+          <div class="footer__social">
+            <div class="footer__title">
+              <span>Liên hệ</span>
+            </div>
+            <div class="social__content">
+              <span><i class="fab fa-facebook"></i></span>
+              <span><i class="fab fa-youtube"></i></span>
+              <span><i class="fa-brands fa-square-instagram"></i></span>
+              <span><i class="fab fa-amazon"></i></span>
+              <span><i class="fab fa-twitter"></i></span>
+            </div>
+          </div>
+
+          <div class="footer__payment">
+            <div class="footer__title">
+              <span>Phương thức thanh toán</span>
+            </div>
+            <div class="payment__content">
+              <span>
+                <img src="./assets/scss/img/alepay-logo.png" alt="" />
+              </span>
+              <span>
+                <img src="./assets/scss/img/moca-logo.png" alt="" />
+              </span>
+              <span>
+                <img src="./assets/scss/img/mpos-logo.png" alt="" />
+              </span>
+              <span>
+                <img src="./assets/scss/img/onepay-logo.png" alt="" />
+              </span>
+              <span>
+                <img src="./assets/scss/img/vnpay-logo.png" alt="" />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__copyright">
+      <span
+        >Công ty TNHH PT Mobile - GPĐKKD: 1234567890 do sở KH & ĐT TP. HCM cấp ngày 09/11/2020.
+        Địa chỉ: xx/xx/xx Nguyễn Hữu Cảnh, Phường 22, Quận 1, Thành phố Hồ Chí Minh, Việt
+        Nam.</span
+      >
+      <p>
+        <span>
+          Điện thoại:
+          <a href="tel:1900 8888">1900 8888</a>
+        </span>
+      </p>
+    </div>
+  </footer>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
