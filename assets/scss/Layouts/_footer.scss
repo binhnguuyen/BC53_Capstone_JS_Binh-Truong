@@ -8,6 +8,10 @@ footer {
         grid-template-columns: repeat(4, 1fr);
         justify-content: space-between;
 
+        .footer__suport {
+            margin-left: 30px;
+        }
+
         .footer__link {
             display: grid;
             grid-template-rows: 1fr;
@@ -54,7 +58,7 @@ footer {
     .footer__title {
         margin-bottom: 10px;
         font-weight: 500;
-        color: rgb(226, 42, 42);
+        color: red;
     }
 
     ul li {
@@ -80,7 +84,7 @@ footer {
         margin-top: 20px;
         padding: 20px 25px;
         font-size: 14px;
-        border-top: 1px solid #EBA768;
+        border-top: 1px solid white;
         color: rgb(243, 234, 234);
     }
 
