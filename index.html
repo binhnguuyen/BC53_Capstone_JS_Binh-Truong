@@ -94,16 +94,16 @@
                 Admin Page <span class="sr-only">(current)</span></a>
             </li>
           </ul>
-          <div class="btn-group">
+          <!-- <div class="btn-group">
             <select class="form-control" id="filterSP" onchange="filSP()">
               <option class="item-control" value="All">Lọc sản phẩm</option>
               <option class="item-control" value="Apple">Apple</option>
               <option class="item-control" value="Samsung">Samsung</option>
               <option class="item-control" value="Other">Other</option>
             </select>
-          </div>
-          <br />
-          <span class="sp-thongbao text-danger d-none" id="tbFilterSP">Không tìm thấy sản phẩm</span>
+          </div> -->
+          <!-- <br />
+          <span class="sp-thongbao text-danger d-none" id="tbFilterSP">Không tìm thấy sản phẩm</span> -->
           <!-- <a class="btn btn-info js-open" data-target="#js-favourites"
           aria-controls="js-favourites" href="#">
             <span class="bag-icon">Your Cart</span>
@@ -228,16 +228,30 @@
       <a href="">
         <h2>ĐIỆN THOẠI</h2>
       </a>
+
       <ul>
-        <li><a href="">Apple</a></li>
-        <li><a href="">Samsung</a></li>
-        <li><a href="">Oppo</a></li>
-        <li><a href="">Huawei</a></li>
-        <li><a href="">Xiaomi</a></li>
-        <li><a href="">Vivo</a></li>
-        <li><a href="">Relme</a></li>
-        <li><a href="">Vsmart</a></li>
+        <li><a onclick="filSP('Apple')" >Apple</a></li>
+        <li><a onclick="filSP('Samsung')">Samsung</a></li>
+        <li><a onclick="filSP('Oppo')">Oppo</a></li>
+        <li><a onclick="filSP('Huawei')">Huawei</a></li>
+        <li><a onclick="filSP('Xiaomi')">Xiaomi</a></li>
+        <li><a onclick="filSP('Vivo')">Vivo</a></li>
+        <li><a onclick="filSP('Relme')">Realme</a></li>
+        <li><a  onclick="filSP('Other')">Other</a></li>
       </ul>
+      
+      <!-- <div class="btn-group">
+        <select class="form-control" id="filterSP" onchange="filSP()">
+          <option class="item-control" value="All">Lọc sản phẩm</option>
+          <option class="item-control" value="Apple">Apple</option>
+          <option class="item-control" value="Samsung">Samsung</option>
+          <option class="item-control" value="Other">Other</option>
+        </select>
+      </div> -->
+    </div>
+    <br />
+    <div class="sp-thongbao text-danger d-none text-danger" id="tbFilterSP">
+      Không tìm thấy sản phẩm
     </div>
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="pills-home-tab">

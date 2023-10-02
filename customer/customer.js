@@ -32,28 +32,75 @@ fetchProductsList();
  * Tham số: không
  * Chú ý:
  */
-function filSP() {
-  var filterSP = document.querySelector("#filterSP").value;
+// function filSP() {
+//   var filterSP = document.querySelector("#filterSP").value;
+//   var tbFilterSP = document.querySelector("#tbFilterSP");
+//   var filterResult = [];
+//   var all = "All";
+
+//   getProductList()
+//     // thành công thì in ra sp
+//     .then(function (res) {
+//       var sp = res.data;
+
+//       if (filterSP === all) {
+//         renderProductsList(sp);
+//       } else {
+//         for (var i = 0; i < sp.length; i++) {
+//           if (filterSP === sp[i].type) {
+//             filterResult.push(sp[i]);
+//           }
+//         }
+//         renderProductsList(filterResult);
+//       }
+//       if (filterSP != all) {
+//         if (filterResult.length == 0) {
+//           tbFilterSP.classList.remove("d-none");
+//           tbFilterSP.classList.add("d-block");
+//         } else {
+//           tbFilterSP.classList.remove("d-block");
+//           tbFilterSP.classList.add("d-none");
+//         }
+//       }
+
+//       offLoading();
+//     })
+//     // thất bại thì báo lỗi, hoặc in ra thông báo tuỳ mình
+//     .catch(function (err) {
+//       offLoading();
+//       console.log("err", err);
+//     });
+// }
+
+function filSP(val) {
   var tbFilterSP = document.querySelector("#tbFilterSP");
   var filterResult = [];
-  var all = "All";
+  // var all = "All";
+  // var Apple = "Apple";
+  // var Samsung = "Samsung";
+  // var Oppo = "Oppo";
+  // var Huawei = "Huawei";
+  // var Xiaomi = "Xiaomi";
+  // var Vivo = "Vivo";
+  // var Realme = "Realme";
+  // var Other = "Other";
 
   getProductList()
     // thành công thì in ra sp
     .then(function (res) {
       var sp = res.data;
 
-      if (filterSP === all) {
+      if (val === all) {
         renderProductsList(sp);
       } else {
         for (var i = 0; i < sp.length; i++) {
-          if (filterSP === sp[i].type) {
+          if (val === sp[i].type) {
             filterResult.push(sp[i]);
           }
         }
         renderProductsList(filterResult);
       }
-      if (filterSP != all) {
+      if (val != all) {
         if (filterResult.length == 0) {
           tbFilterSP.classList.remove("d-none");
           tbFilterSP.classList.add("d-block");
@@ -71,6 +118,8 @@ function filSP() {
       console.log("err", err);
     });
 }
+
+
 
 /**
  * @param {*} plusOneToCart
