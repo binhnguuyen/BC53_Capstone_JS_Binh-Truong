@@ -34,7 +34,6 @@ fetchProductsList();
  */
 function filSP() {
   var filterSP = document.querySelector("#filterSP").value;
-  console.log("filterSP: ", filterSP);
   var tbFilterSP = document.querySelector("#tbFilterSP");
   var filterResult = [];
   var all = "All";
@@ -74,7 +73,7 @@ function filSP() {
 }
 
 /**
- * @param {*} filSP
+ * @param {*} plusOneToCart
  * Chức năng: hàm thêm sản phẩm vào cart
  * Tham số: không
  * Chú ý:
@@ -162,8 +161,8 @@ function plusOneToCart(idSP) {
 }
 
 /**
- * @param {*} filSP
- * Chức năng: hàm thêm sản phẩm vào cart
+ * @param {*} minusOneFromCart
+ * Chức năng: hàm giảm sản phẩm vào cart
  * Tham số: không
  * Chú ý:
  */
