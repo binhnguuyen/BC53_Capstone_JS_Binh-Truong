@@ -125,6 +125,7 @@
                 Sắp xếp tăng dần
               </button>
               <!-- END BUTTON SẮP XẾP TĂNG -->
+              
               <!-- BEGIN BUTTOM SẮP XẾP GIẢM-->
               <button
                 id="btnSapXepGiam"
@@ -134,26 +135,7 @@
                 Sắp xếp giảm dần
               </button>
               <!-- END BUTTON SẮP XẾP GIẢM -->
-    <!-- <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">BT-Mobile</a>
-      <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
-        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
-      <div class="collapse navbar-collapse" id="collapsibleNavId">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdownId">
-              <a class="dropdown-item" href="#">Action 1</a>
-              <a class="dropdown-item" href="#">Action 2</a>
-            </div>
-            <div class="col-md-4">
+  
               <!-- BEGIN TÌM KIẾM -->
               <div class="input-group mb-3">
                 <input id="txtSearch"
@@ -196,80 +178,7 @@
         </div>
         <!-- Kết thúc danh sách sản phẩm -->
       </div>
-    </nav> -->
-
-    <!-- <header class="display-4 my-4">Thực hành javascript - axios</header> -->
-    <!-- Phan tab menu -->
-    <ul class="nav nav-tabs" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active font-weight-bold .text-body" href="#DanhSachSP" role="tab" data-toggle="tab">Danh sách sản phẩm</a>
-      </li>
-    </ul>
-    <br />
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <!--Danh sách sản phẩm -->
-      <div role="tabpanel" class="tab-pane in active" id="DanhSachSP">
-        <div class="row">
-          <div class="col-md-8">
-            <!-- BEGIN BUTTOM THÊM MỚI -->
-            <button id="btnThemSP" class="btn btn-success" data-toggle="modal" data-target="#myModal">
-              <i class="fa fa-plus mr-1"></i>
-              Thêm Mới
-            </button>
-            <!-- END BUTTON THÊM MỚI -->
-            <!-- BEGIN BUTTOM SẮP XẾP TĂNG-->
-            <button id="btnSapXepTang" class="btn btn-success" onclick="sortInAscending()">
-              <i class="fa fa-arrow-circle-up"></i>
-              Sắp xếp tăng dần
-            </button>
-            <!-- END BUTTON SẮP XẾP TĂNG -->
-            <!-- BEGIN BUTTOM SẮP XẾP GIẢM-->
-            <button id="btnSapXepGiam" class="btn btn-success" onclick="sortInDescending()">
-              <i class="fa fa-arrow-circle-down"></i>
-              Sắp xếp giảm dần
-            </button>
-            <!-- END BUTTON SẮP XẾP GIẢM -->
-          </div>
-          <div class="col-md-4">
-            <!-- BEGIN TÌM KIẾM -->
-            <div class="input-group mb-3">
-              <input id="txtSearch" type="text" class="form-control" placeholder="Nhập từ khóa"
-                aria-label="Recipient's username" aria-describedby="basic-addon2" />
-              <div class="input-group-append">
-                <span onclick="searchProductByName()" class="input-group-text" id="basic-addon2"><i
-                    class="fa fa-search"></i></span>
-              </div>
-            </div>
-            <!-- END TÌM KIẾM -->
-          </div>
-        </div>
-        <div class="clear-fix"></div>
-        <div class="tblSanPham" id="tblSanPham">
-          <!-- BEGIN TABLE SẢN PHẨM -->
-          <table class="table table-bordered">
-            <thead>
-              <th>STT</th>
-              <th>Tên Sản Phẩm</th>
-              <th>Giá</th>
-              <th>Màn hình</th>
-              <th>Camera sau</th>
-              <th>Camera trước</th>
-              <th>Hình ảnh</th>
-              <th>Mô tả</th>
-              <th>Hãng</th>
-              <th>Action</th>
-            </thead>
-            <tbody id="tblDanhSachSP"></tbody>
-          </table>
-          <!-- END TABLE SẢN PHẨM -->
-        </div>
-        <br />
-      </div>
-      <!-- Kết thúc danh sách sản phẩm -->
-    </div>
-
-    <!--KetThuc Tabmenu-->
+    </nav>
 
     <!-- The Modal -->
     <div class="modal fade" id="myModal">
