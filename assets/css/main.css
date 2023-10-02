@@ -21,6 +21,25 @@ body {
   padding: 20px;
 }
 
+.header .header__bottom .btn-Product {
+  position: relative;
+}
+.header .header__bottom .btn-Product .btn-NumOf {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -7px;
+  right: -5px;
+  height: 1rem;
+  width: 1rem;
+  font-size: 0.75rem;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #d70018;
+  color: #fff;
+  padding: 8px;
+}
 .header {
   color: #fff;
 }
