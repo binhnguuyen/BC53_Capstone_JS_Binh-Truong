@@ -1,68 +1,98 @@
 .modal {
     .modal-dialog {
         .modal-content {
-            background-color:#dadada;
+            background-color: #b8b6b6;
+
             .modal-header {
+                margin-top: 30px;
+
+                &::after {
+                    height: 5px;
+                    bottom: 0;
+                    background-color: white;
+                    border: 1px solid aliceblue;
+                    width: 100%;
+                }
+
                 
-                margin-top: 30px;   
-                .modal-title {}
             }
 
             .modal-body {
                 .product-link {
-                    &:hover{
-                    text-decoration: none;
-                    list-style: none;
+                    &:hover {
+                        text-decoration: none;
+                        list-style: none;
                     }
+                    
                     .product-left {
-                        background-color: rgb(234, 239, 239) ;
+                        background-color: #dadada;
                         text-align: center;
+                        padding: 16px 10px;
+                        height: 280px;
                     }
+
                     .product-right {
                         list-style: none;
+
                         h3 {
-                            color: #000;  
+                            color: #000;
                             margin-top: 12px;
-                            te
-                            &:hover{
+                            text-align: center;
+
+                            &:hover {
                                 text-decoration: none;
                                 list-style: none;
-                            }                     
+                            }
                         }
-                        .qty-price{                           
-                            .price{
+
+                        .qty-price {
+                            .price {
                                 font-size: 18px;
-                               color: rgb(231, 34, 34);
-                               margin-bottom: 12px;
+                                color: rgb(231, 34, 34);
+                                margin-bottom: 12px;
                             }
                         }
-                        .qty{
-                            .minus-button{
-                                width: 20px;
-                                font-size: 16px;
-                                
-                            }
-                            .plus-button{
-                                width: 20px;
-                                font-size: 16px;
-                            }
-                            .qty-input{
+
+                        .qty {
+
+                            .minus-button {
+                                width: 25px;
+                                height: 25px;
                                 text-align: center;
-                                
+                                padding: 4.2px 0;
+                                font-size: 15px;
+                                line-height: 0.5;
+                                border-radius: 15px;
+                            }
+
+                            .plus-button {
+                                width: 25px;
+                                height: 25px;
+                                text-align: center;
+                                padding: 4.2px 0;
+                                font-size: 12px;
+                                line-height: 1.45;
+                                border-radius: 15px;
+                            }
+
+                            .qty-input {
+                                text-align: center;
                             }
                         }
                     }
                 }
             }
-            .modal-footer{
-               .modalBtn1{
-                background-color: rgb(185 28 28);
-                color: $color-white-1;
-               }
-               .modalBtn2{
-                background-color: rgb(126 34 206);
-                color: $color-white-1;
-               }
+
+            .modal-footer {
+                .modalBtn1 {
+                    background-color: rgb(185 28 28);
+                    color: $color-white-1;
+                }
+
+                .modalBtn2 {
+                    background-color: rgb(126 34 206);
+                    color: $color-white-1;
+                }
             }
         }
     }
