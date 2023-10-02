@@ -83,6 +83,10 @@ function plusOneToCart(idSP) {
   var alreadyInCart = false;
   var idToDel;
   var quantityInCart;
+  var thanhToan = getEle("#thanhToan");
+  
+  thanhToan.classList.remove("d-block");
+  thanhToan.classList.add("d-none");
 
   editProductByID(idSP)
     .then(function (res) {
@@ -168,6 +172,10 @@ function minusOneFromCart(idSP) {
   var idToDel;
   var quantityInCart;
   var thanhTien = getEle("#thanhTien");
+  var thanhToan = getEle("#thanhToan");
+  
+  thanhToan.classList.remove("d-block");
+  thanhToan.classList.add("d-none");
   
   editProductByID(idSP)
     .then(function (res) {
@@ -283,6 +291,7 @@ function thanhTien() {
   var sum = 0;
   var num;
   var thanhTien = getEle("#thanhTien");
+
   for (var i = 0; i < dsspInCart.product.length; i++) {
     sum += dsspInCart.product[i].tinhTienSanPham();
     num += dsspInCart.product[i].quantity;
@@ -290,6 +299,7 @@ function thanhTien() {
   }
   
   if ( dsspInCart.product !== null ) {
+    
     thanhTien.classList.remove("d-none");
     thanhTien.classList.add("d-block");
     res = `
@@ -343,7 +353,7 @@ function thanhToan() {
   thanhToan.classList.remove("d-none");
   thanhToan.classList.add("d-block");
   res = `
-    <h3>Giao dịch thanh công!</h3>
+    <h3>Giao dịch thành công!</h3>
     <h3>Xin cảm ơn bạn đã thanh toán</h3>
   `; 
   

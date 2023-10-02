@@ -187,11 +187,16 @@
         <div class="modal-body" id="inner">
           <!-- Phần để render sp ra cart -->
         </div>
+        <!-- phần để in tổng tiền ra cart -->
+        <div id="thanhTien" class="d-none"></div>
+        <!-- phần để in thông báo giao dịch-->
+        <div id="thanhToan" class="d-none"></div>
+
         <div class="modal-footer">
           <button type="button" class="btn modalBtn1" data-dismiss="modal">
             Đóng <i class="fa fa-window-close"></i>
           </button>
-          <button type="button" class="btn modalBtn2">Đặt hàng<i class="fa fa-credit-card ml-1"></i> </button>
+          <button type="button" class="btn btn-primary" onclick="thanhToan()">Tiến hành thanh toán <i class="fa fa-credit-card"></i> </button>
         </div>
       </div>
     </div>
