@@ -36,7 +36,7 @@ function getEle(selector) {
 
 // lấy thông tin từ form
 function getInfo() {
-    var id = document.querySelector("#maSP").value;
+    var id = getEle("#maSP").value;
     var nameProduct = getEle("#TenSP").value;
     var priceProduct = getEle("#GiaSP").value;
     var screenProduct = getEle("#screenSP").value;
