@@ -78,6 +78,12 @@ function addProduct() {
 // Cập nhật sản phẩm
 // Bước 1: lấy thông tin sp cẩn sửa show lên form
 function editProduct(id) {
+  // ẩn button add
+  getEle("#btnAdd").style.display = "none";
+  // ẩn button update
+  getEle("#btnUpdate").style.display = "inline-block";
+  getEle("#btnReset").style.display = "inline-block";
+
   editProductByID(id)
     .then(function (res) {
       // gán cái get đc cho sp
@@ -200,4 +206,15 @@ function sortInDescending() {
     .catch(function (err) {
       console.log("err", err);
     });
+}
+
+getEle("#btnThemSP").onclick = function() {
+  // ẩn button reset
+  getEle("#btnReset").style.display = "none";
+  // ẩn button update
+  getEle("#btnUpdate").style.display = "none";
+};
+
+function resetForm() {
+  getEle("#modalForm").reset();
 }

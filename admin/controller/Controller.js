@@ -88,7 +88,7 @@ function validationSP(value) {
     // kiểm tra giá sp có bỏ trống, có phải là số và nằm trong đúng khung giá hay ko
     valid &= kiemTraRong(value.price, priceProduct, messBlankPrice) &&
         kiemTraSo(value.price, priceProduct, messCheckNnum) &&
-        kiemTraLonNho(value.price, priceProduct, 50000, 100000000, messMinMaxPrice);
+        kiemTraLonNho(value.price, priceProduct, 100, 10000, messMinMaxPrice);
 
     // kiểm tra màn hình sp có bỏ trống hay ko
     valid &= kiemTraRong(value.screen, screenProduct, messBlankScreen);
