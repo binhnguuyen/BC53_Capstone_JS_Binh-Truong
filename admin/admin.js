@@ -22,7 +22,6 @@ function fetchProductsList() {
   getProductList()
     // thành công thì in ra sp
     .then(function (res) {
-      console.log("res", res.data);
       renderProductsList(res.data);
       offLoading();
     })
@@ -44,7 +43,6 @@ function delProduct(id) {
     .then(function (res) {
       // gọi lại api lấy lại tất cả sp trên server về sau khi xóa thành công để render ra ds mới nhất
       fetchProductsList();
-      console.log("sản phẩm bị xóa", res.data);
     })
     .catch(function (err) {
       console.log("err", err);
@@ -55,7 +53,6 @@ function delProduct(id) {
 function addProduct() {
   // lấy sp từ form
   var sp = getInfo();
-  console.log("sp: ", sp);
 
   // Validation check
   var valid = validationSP(sp);
@@ -81,9 +78,14 @@ function addProduct() {
 // Cập nhật sản phẩm
 // Bước 1: lấy thông tin sp cẩn sửa show lên form
 function editProduct(id) {
+  // ẩn button add
+  getEle("#btnAdd").style.display = "none";
+  // ẩn button update
+  getEle("#btnUpdate").style.display = "inline-block";
+  getEle("#btnReset").style.display = "inline-block";
+
   editProductByID(id)
     .then(function (res) {
-      console.log("res", res.data);
       // gán cái get đc cho sp
       var sp = res.data;
 
@@ -110,7 +112,6 @@ function updateProduct() {
   var sp = getInfo();
   updateProductByID(sp.id, sp)
     .then(function (res) {
-      console.log("res", res.data);
       //tắt modal sau khi update thành công
       $("#myModal").modal("hide");
       //lấy danh sách sp mới nhất từ server
@@ -205,4 +206,15 @@ function sortInDescending() {
     .catch(function (err) {
       console.log("err", err);
     });
+}
+
+getEle("#btnThemSP").onclick = function() {
+  // ẩn button reset
+  getEle("#btnReset").style.display = "none";
+  // ẩn button update
+  getEle("#btnUpdate").style.display = "none";
+};
+
+function resetForm() {
+  getEle("#modalForm").reset();
 }

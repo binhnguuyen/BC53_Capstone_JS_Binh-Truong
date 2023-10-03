@@ -49,12 +49,14 @@ function renderProductsToCart(productsList) {
     var contentTr = 
     // Giao diện 2
     `
-      <a href="#" class="product-link">
+      <a href="#" target="_blank" class="product-link">
         <div class="product-left">
           <img src="${product.img}" alt="Product Photo" width="250">
         </div>
-        <div class="product-right">
-          <h3 class="product-heading">${product.name}</h3>
+        <div class="product-left">
+          <a href="${product.img}" target="_blank">
+            <h3 class="product-heading">${product.name}</h3>
+          </a>
           <div class="qty-price">
             <div class="price">$ ${product.price}</div>
             <div class="qty">
@@ -64,6 +66,8 @@ function renderProductsToCart(productsList) {
               <input type="hidden" name="item-price" id="item-price-2" value="12.00">
             </div>
           </div>
+        <div class="product-right">
+          <button onclick="removeProductFromCart(${product.id})" class="bg-danger">Remove</button>
         </div>
       </a>
       <hr>
