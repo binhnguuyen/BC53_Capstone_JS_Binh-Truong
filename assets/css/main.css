@@ -219,6 +219,9 @@ footer .footer__wrapper .footer__link .footer__social {
 footer .footer__wrapper .footer__link .footer__social .social__content span {
   margin-right: 20px;
 }
+footer .footer__wrapper .footer__link .footer__social .social__content span:hover {
+  color: rgb(243, 234, 234);
+}
 footer .footer__wrapper .footer__link .footer__social .social__content span i {
   font-size: 24px;
 }
@@ -313,6 +316,7 @@ footer .footer__copyright a {
 .modal .modal-dialog .modal-body .product-left .product-heading {
   text-align: center;
   color: black;
+  cursor: default;
 }
 .modal .modal-dialog .modal-body .product-left .qty-price {
   font-size: 1.1rem;
@@ -344,9 +348,9 @@ footer .footer__copyright a {
   width: 25px;
   height: 25px;
   text-align: center;
-  padding: 3.8px 0;
-  font-size: 12px;
-  line-height: 1.45;
+  padding: 4.2px 0;
+  font-size: 15px;
+  line-height: 0.5;
   border-radius: 15px;
 }
 .modal .modal-dialog .modal-body .product-left .product-right .bg-danger {
@@ -359,7 +363,7 @@ footer .footer__copyright a {
   display: flex !important;
 }
 .modal .modal-dialog #thanhTien h3 {
-  margin: 0 15px 0 15px;
+  margin: 0 6px 0 10px;
   font-size: 1.3rem;
 }
 .modal .modal-dialog #thanhTien h4 {

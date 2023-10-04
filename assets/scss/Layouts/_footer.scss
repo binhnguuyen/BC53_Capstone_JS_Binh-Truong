@@ -23,6 +23,9 @@ footer {
 
                 .social__content span {
                     margin-right: 20px;
+                    &:hover{
+                        color: rgb(243, 234, 234);
+                    }
                 }
 
                 .social__content span i {
