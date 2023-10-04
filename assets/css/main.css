@@ -275,6 +275,9 @@ footer .footer__copyright a {
 .modal .modal-dialog .modal-content {
   background-color: #b8b6b6;
 }
+.modal .modal-dialog .modal-content #inner {
+  text-align: center;
+}
 .modal .modal-dialog .modal-content .modal-header {
   margin-top: 30px;
 }
