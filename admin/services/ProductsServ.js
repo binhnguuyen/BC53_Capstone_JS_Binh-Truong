@@ -1,4 +1,4 @@
-const BASE_URL = "https://6500589318c34dee0cd4bff0.mockapi.io/smartphones";
+const BASE_URL = "https://651d525844e393af2d598dd0.mockapi.io/smartphones";
 
 // Cách 1
 function getProductList(val) {
