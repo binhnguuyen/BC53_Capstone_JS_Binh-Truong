@@ -21,6 +21,8 @@
 
             }
 
+            }
+            
             .modal-body {
                 margin-bottom: -20px;
 
@@ -122,6 +124,9 @@
                     }
                 }
             }
+            #inner{
+                text-align: center;
+            }
 
             #thanhTien {
                 display: flex !important;
@@ -160,4 +165,3 @@
             }
         }
     }
-}
