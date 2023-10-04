@@ -67,7 +67,7 @@ function renderProductsToCart(productsList) {
             </div>
           </div>
         <div class="product-right">
-          <button onclick="removeProductFromCart(${product.id})" class="bg-danger">Remove</button>
+          <button onclick="removeProductFromCart(${product.id})" class="bg-danger">Xoá sản phẩm</button>
         </div>
       </a>
       <hr>

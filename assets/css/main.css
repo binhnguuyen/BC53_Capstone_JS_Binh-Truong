@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -170,6 +171,7 @@ body {
 }
 .project .blockMenu ul li a {
   display: inline-block;
+  cursor: pointer;
 }
 .project .tab-content .tab-pane .row .card {
   background-color: #fff;
@@ -283,6 +285,9 @@ footer .footer__copyright a {
   border: 1px solid aliceblue;
   width: 100%;
 }
+.modal .modal-dialog .modal-content .modal-body {
+  margin-bottom: -20px;
+}
 .modal .modal-dialog .modal-content .modal-body .product-link:hover {
   text-decoration: none;
   list-style: none;
@@ -293,24 +298,36 @@ footer .footer__copyright a {
   padding: 16px 10px;
   height: 280px;
 }
-.modal .modal-dialog .modal-content .modal-body .product-link .product-right {
-  list-style: none;
+.modal .modal-dialog .modal-content .modal-body .product-left {
+  cursor: default;
 }
-.modal .modal-dialog .modal-content .modal-body .product-link .product-right h3 {
-  color: #000;
-  margin-top: 12px;
-  text-align: center;
-}
-.modal .modal-dialog .modal-content .modal-body .product-link .product-right h3:hover {
+.modal .modal-dialog .modal-content .modal-body .product-left a:hover {
   text-decoration: none;
   list-style: none;
+  cursor: pointer;
 }
-.modal .modal-dialog .modal-content .modal-body .product-link .product-right .qty-price .price {
-  font-size: 18px;
-  color: rgb(231, 34, 34);
-  margin-bottom: 12px;
+.modal .modal-dialog .modal-content .modal-body .product-left .product-link a h3:hover {
+  list-style: none;
+  text-decoration: none;
 }
-.modal .modal-dialog .modal-content .modal-body .product-link .product-right .qty .minus-button {
+.modal .modal-dialog .modal-content .modal-body .product-left .product-heading {
+  text-align: center;
+  color: black;
+}
+.modal .modal-dialog .modal-content .modal-body .product-left .qty-price {
+  font-size: 1.1rem;
+}
+.modal .modal-dialog .modal-content .modal-body .product-left .qty-price .price {
+  margin-bottom: 10px;
+}
+.modal .modal-dialog .modal-content .modal-body .product-left .qty-price .price::before {
+  content: "Giá tiền: ";
+  font-weight: bold;
+}
+.modal .modal-dialog .modal-content .modal-body .product-left .qty-price .qty {
+  margin-bottom: 10px;
+}
+.modal .modal-dialog .modal-content .modal-body .product-left .qty-price .qty .minus-button {
   width: 25px;
   height: 25px;
   text-align: center;
@@ -319,23 +336,47 @@ footer .footer__copyright a {
   line-height: 0.5;
   border-radius: 15px;
 }
-.modal .modal-dialog .modal-content .modal-body .product-link .product-right .qty .plus-button {
+.modal .modal-dialog .modal-content .modal-body .product-left .qty-price .qty .qty-input {
+  margin-bottom: 3px;
+  text-align: center;
+}
+.modal .modal-dialog .modal-content .modal-body .product-left .qty-price .qty .plus-button {
   width: 25px;
   height: 25px;
   text-align: center;
-  padding: 4.2px 0;
+  padding: 3.8px 0;
   font-size: 12px;
   line-height: 1.45;
   border-radius: 15px;
 }
-.modal .modal-dialog .modal-content .modal-body .product-link .product-right .qty .qty-input {
+.modal .modal-dialog .modal-content .modal-body .product-left .product-right .bg-danger {
+  color: white;
+  background-color: rgb(96, 86, 86) !important;
+  padding: 2.5px;
+  border-radius: 5px;
+}
+.modal .modal-dialog .modal-content #thanhTien {
+  display: flex !important;
+}
+.modal .modal-dialog .modal-content #thanhTien h3 {
+  margin: 0 15px 0 15px;
+  font-size: 1.3rem;
+}
+.modal .modal-dialog .modal-content #thanhTien h4 {
+  font-size: 1.3rem;
+  color: red;
+}
+.modal .modal-dialog .modal-content #thanhToan h3 {
+  font-size: 1.2rem;
   text-align: center;
 }
 .modal .modal-dialog .modal-content .modal-footer .modalBtn1 {
   background-color: rgb(185, 28, 28);
   color: #fff;
+  padding: 5px;
 }
-.modal .modal-dialog .modal-content .modal-footer .modalBtn2 {
+.modal .modal-dialog .modal-content .modal-footer .btn-primary {
   background-color: rgb(126, 34, 206);
   color: #fff;
+  padding: 5px;
 }/*# sourceMappingURL=main.css.map */
