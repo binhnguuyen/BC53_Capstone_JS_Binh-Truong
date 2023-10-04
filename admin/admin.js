@@ -53,6 +53,7 @@ function delProduct(id) {
 function addProduct() {
   // lấy sp từ form
   var sp = getInfo();
+  console.log('sp: ', sp);
 
   // Validation check
   var valid = validationSP(sp);
