@@ -1,8 +1,6 @@
-
-
 .modal {
     .modal-dialog {
-        
+
         .modal-content {
             background-color: #b8b6b6;
 
@@ -16,11 +14,12 @@
                     border: 1px solid aliceblue;
                     width: 100%;
                 }
-                
-            }
 
+            }
+            
             .modal-body {
                 margin-bottom: -20px;
+
                 .product-link {
                     &:hover {
                         text-decoration: none;
@@ -37,42 +36,49 @@
 
                 .product-left {
                     cursor: default;
-                    a{
-                        &:hover{
+
+                    a {
+                        &:hover {
                             text-decoration: none;
                             list-style: none;
-                            cursor:pointer;
+                            cursor: pointer;
                         }
                     }
+
                     .product-link {
-                        a{
-                            h3{
-                                &:hover{
+                        a {
+                            h3 {
+                                &:hover {
                                     list-style: none;
                                     text-decoration: none;
                                 }
                             }
-                            
+
                         }
                     }
+
                     .product-heading {
                         text-align: center;
                         color: black;
-                        
+
                     }
 
                     .qty-price {
                         font-size: 1.1rem;
-                        .price{
+
+                        .price {
                             margin-bottom: 10px;
-                            &::before{
-                                content:"Giá tiền: ";
+
+                            &::before {
+                                content: "Giá tiền: ";
                                 font-weight: bold;
                             }
-                            
+
                         }
+
                         .qty {
                             margin-bottom: 10px;
+
                             .minus-button {
                                 width: 25px;
                                 height: 25px;
@@ -86,7 +92,7 @@
                             .qty-input {
                                 margin-bottom: 3px;
                                 text-align: center;
-                                
+
                             }
 
                             .plus-button {
@@ -101,44 +107,51 @@
                         }
                     }
 
-                    .product-right { 
+                    .product-right {
                         .bg-danger {
                             color: white;
                             background-color: rgb(96, 86, 86) !important;
                             padding: 2.5px;
                             border-radius: 5px;
-                            
+
                         }
                     }
                 }
             }
-            #thanhTien{
+            #inner{
+                text-align: center;
+            }
+
+            #thanhTien {
                 display: flex !important;
-                h3{
+
+                h3 {
                     margin: 0 15px 0 15px;
                     font-size: 1.3rem;
                 }
-                h4{
+
+                h4 {
                     font-size: 1.3rem;
                     color: red;
-                    
+
                 }
             }
 
-            #thanhToan{
-                h3{
+            #thanhToan {
+                h3 {
                     font-size: 1.2rem;
                     text-align: center;
                 }
             }
 
             .modal-footer {
-                .modalBtn1{
+                .modalBtn1 {
                     background-color: rgb(185 28 28);
                     color: $color-white-1;
                     padding: 5px;
                 }
-                .btn-primary{
+
+                .btn-primary {
                     background-color: rgb(126 34 206);
                     color: $color-white-1;
                     padding: 5px;

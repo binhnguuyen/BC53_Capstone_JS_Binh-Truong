@@ -355,6 +355,9 @@ footer .footer__copyright a {
   padding: 2.5px;
   border-radius: 5px;
 }
+.modal .modal-dialog .modal-content #inner {
+  text-align: center;
+}
 .modal .modal-dialog .modal-content #thanhTien {
   display: flex !important;
 }
