@@ -81,6 +81,7 @@ function validationSP(value) {
     var messBlankImg = "Link hình ảnh sản phẩm không đc để trống";
     var messBlankDesc = "Mô tả sản phẩm không đc để trống";
     var messCheckType = "Hãng sản xuất không hợp lệ";
+    var messBlankType = "Hãng sản xuất không được bỏ trống";
 
     // kiểm tra tên sp có bỏ trống hay ko
     var valid = kiemTraRong(value.name, nameProduct, messBlankName);
@@ -106,8 +107,9 @@ function validationSP(value) {
     valid &= kiemTraRong(value.desc, describeProduct, messBlankDesc);
 
     // kiểm tra loại sp có bỏ trống hay ko
-    var hangSX = ["Apple", "Samsung"];
+    var hangSX = ["Apple", "Samsung","Other"];
     valid &= kiemTraTrung(value.type, hangSX, typeProduct, messCheckType);
+    valid &= kiemTraRong(value.type, typeProduct, messBlankType);
 
 
     if (valid) {
