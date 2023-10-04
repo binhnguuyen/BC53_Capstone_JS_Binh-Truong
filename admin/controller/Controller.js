@@ -46,7 +46,6 @@ function getInfo() {
     var describeProduct = getEle("#descSP").value;
     var typeProduct = getEle("#loaiSP").value;
 
-
     return new Product(id, nameProduct, priceProduct, screenProduct, bkCamProduct, frCamProduct, imageProduct, describeProduct, typeProduct);
 }
 

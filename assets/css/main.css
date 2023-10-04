@@ -291,6 +291,10 @@ footer .footer__copyright a {
 .modal .modal-dialog .modal-body {
   margin-bottom: -20px;
 }
+.modal .modal-dialog .modal-body h3 {
+  font-size: 1.2rem;
+  text-align: center;
+}
 .modal .modal-dialog .modal-body .product-link:hover {
   text-decoration: none;
   list-style: none;
