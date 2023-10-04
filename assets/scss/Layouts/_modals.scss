@@ -21,7 +21,12 @@
 
         .modal-body {
             margin-bottom: -20px;
-
+           
+            h3{
+                font-size: 1.2rem;
+                text-align: center;
+              
+            }
             .product-link {
                 &:hover {
                     text-decoration: none;
