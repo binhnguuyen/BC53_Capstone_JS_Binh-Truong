@@ -219,7 +219,7 @@ function minusOneFromCart(idSP) {
   var alreadyInCart = false;
   var idToDel;
   var quantityInCart;
-  var thanhTien = getEle("#thanhTien");
+  var tongTien = getEle("#thanhTien");
   var thanhToan = getEle("#thanhToan");
   
   thanhToan.classList.remove("d-block");
@@ -278,8 +278,8 @@ function minusOneFromCart(idSP) {
         var productTable = (document.querySelector("#inner").innerHTML = `
           <h3 class=".text-danger">Chưa có hàng trong giỏ</h3>
         `);
-        thanhTien.classList.remove("d-block");
-        thanhTien.classList.add("d-none");
+        tongTien.classList.remove("d-block");
+        tongTien.classList.add("d-none");
       } else {
         // render ra cart
         renderProductsToCart(dsspInCart.product);
