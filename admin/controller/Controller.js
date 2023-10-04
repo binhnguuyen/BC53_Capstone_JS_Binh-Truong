@@ -106,7 +106,7 @@ function validationSP(value) {
     valid &= kiemTraRong(value.desc, describeProduct, messBlankDesc);
 
     // kiểm tra loại sp có bỏ trống hay ko
-    var hangSX = ["apple", "samsung"];
+    var hangSX = ["Apple", "Samsung"];
     valid &= kiemTraTrung(value.type, hangSX, typeProduct, messCheckType);
 
 
