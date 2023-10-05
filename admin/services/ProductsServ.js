@@ -22,11 +22,12 @@ function delProductList(id) {
     });
 }
 
-function addProductList() {
+function addProductList(sp) {
     // nhớ phải có return
     return axios({
         url: BASE_URL,
         method: "POST",
+        data:sp,
     });
 }
 
