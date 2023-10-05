@@ -44,6 +44,7 @@ function updateProductByID(id, sp) {
     return axios({
         url: `${BASE_URL}/${id}`,
         method: "PUT",
+        // phải có data mới up lên đc APi
         data: sp,
     });
 }
