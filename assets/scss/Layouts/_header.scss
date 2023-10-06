@@ -8,12 +8,6 @@
     background: $color-bg-2;
   }
   
-  
-
-  @include darkMode2 {
-    background: $color-dark-1;
-  }
-
   // &__logo {
   //   @include styleText(30px, $color-blue-2, 700);
   // }
@@ -44,6 +38,7 @@
       }
       &.active {
         .nav-link {
+
           @include styleText(16px, $color-white-1, 400);
         }
       }

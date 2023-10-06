@@ -17,20 +17,31 @@
   }
 }
 
-// 2 cách thêm darkMode
-@mixin darkMode1() {
+//Theme DarkMode
+@mixin darkMode() {
   .darkMode {
     @content;
   }
 }
 
-@mixin darkMode2() {
-  .darkMode & {
-    @content;
-  }
+//Responsive
+$breakpoint: (
+    'extra-large':1200px,
+    'large': 992px,
+    'medium':768px,
+    'small':576px,
+);
+
+@mixin responsive($screen){
+    @if(map-has-key($map: $breakpoint, $key: $screen)){
+        $width: map-get($map: $breakpoint, $key: $screen);
+        @media screen and (max-width: $width) {
+            @content;
+        }
+    }
+    @else{
+        @warn "`${$screen}` không tồn tại trong $breakpoint"
+    }
 }
-// nghĩa là:
-// .darkMode .header {
-//   background: $color-dark-1;
-// }
+
 

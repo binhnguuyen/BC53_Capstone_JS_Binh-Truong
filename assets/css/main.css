@@ -13,13 +13,21 @@ body {
 }
 
 .themebox {
-  width: 200px;
-  background: #e2ebfc;
+  width: 110px;
+  background: rgb(23, 28, 36);
+  color: white;
   position: fixed;
-  top: 100px;
-  right: 0;
+  top: 61px;
+  right: 50px;
   z-index: 1;
-  padding: 20px;
+  padding: 5px;
+  text-align: center;
+  border-radius: 10px;
+}
+.themebox #darkMode {
+  margin-left: 3px;
+  margin-top: 5px;
+  padding: 3px;
 }
 
 .header .header__bottom .btn-Product {
@@ -79,9 +87,6 @@ body {
   width: 100%;
   z-index: 9999;
   background: #171c24;
-}
-.darkMode .header {
-  background: #353536;
 }
 .header .navbar .navbar-brand {
   font-size: 16px;
@@ -387,4 +392,27 @@ footer .footer__copyright a {
   background-color: rgb(126, 34, 206);
   color: #fff;
   padding: 5px;
+}
+
+.darkMode .carousel {
+  background: #2f353f;
+}
+.darkMode .project {
+  background: #2f353f;
+}
+.darkMode .project .blockMenu {
+  background: #9a9696;
+}
+.darkMode .project .blockMenu a:hover {
+  color: rgb(28, 27, 27);
+}
+.darkMode .project .blockMenu a h2:hover {
+  color: aliceblue;
+}
+.darkMode .css-project {
+  background: #2f353f;
+  margin-top: -24px;
+}
+.darkMode footer {
+  margin-top: 0;
 }/*# sourceMappingURL=main.css.map */
