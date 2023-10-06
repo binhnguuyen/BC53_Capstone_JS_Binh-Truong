@@ -1,8 +1,11 @@
 .project {
     .blockMenu {
         display: flex;
+        
         background: #EBA768;
         color: white;
+        margin: 0;
+        padding: 0;
 
         h2 {
             display: inline-block;

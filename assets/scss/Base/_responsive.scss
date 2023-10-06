@@ -1,17 +1,83 @@
-.header{
-    @include responsive("small") {
-        
+@include responsive("small") {
+    .carousel {
+        margin-top: 60px;
+
+        .owl-carousel {
+            .item {
+                img {
+
+                    background-size: contain;
+                }
+            }
+        }
     }
 
-    @include responsive("medium") {
-        
+}
+
+@include responsive("medium") {
+    footer {
+        .content {
+            .footer__link {
+                margin-left: 30px;
+            }
+
+            .footer__policy {
+                margin-left: 30px;
+            }
+        }
+    }
+    
+}
+
+@include responsive("large") {
+    .header{
+        .header__bottom{
+            .navbar-brand{
+                
+            }
+            .navbar-toggler{
+                background-color: white;
+
+                .show{
+                    color: black !important;
+                }
+            }
+        }
     }
 
-    @include responsive("large") {
-        
+    footer {
+        .content {
+            .footer__us {
+                margin-left: 30px;
+            }
+
+            .footer__policy {
+                margin-left: 30px;
+            }
+
+        }
     }
 
-    @include responsive("extra-large") {
-        
+    .project {
+        .blockMenu {
+            ul {
+                padding: 0;
+                margin: 0;
+            }
+            li{
+                margin: 0 10px 0 -39px;
+            }
+        }
     }
+}
+
+@include responsive("extra-large") {
+    footer {
+        .content {
+            .footer__link {
+                margin-left: 30px;
+            }
+        }
+    }
+
 }
